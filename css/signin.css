@@ -1,0 +1,139 @@
+body {
+
+  padding-bottom: 40px;
+  background-color: #eee;
+
+}
+.heading_wrap{
+    max-width: 768px;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container{
+    padding-top: 140px;
+}
+.wolfpackred{
+    background-color: #CC0000;
+    color: #ffffff;
+}
+/*ERROR SUB-PANEL*/
+.errors{
+    margin-left:25%;
+    width: 450px;
+    padding: 20px;
+
+}
+.rounded_corners{
+    border-radius: 25px;
+    border: 1px solid black;
+}
+.errors h5{
+    font-weight:bold;
+    background-color: #CC0000;
+    color: #ffffff;
+    text-align: center;
+}
+.smaller{
+    width: 200px;
+    padding: 10px;
+
+    /*MAKE THE DIV CENTER*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Stylize link*/
+.smaller a{
+    color: #ffffff;
+}
+/*Stylize link on HOVER*/
+.smaller a:hover{
+    color: #dcdcdc; /*Slight grey color*/
+}
+
+.form-signin {
+  max-width: 768px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  font-size: x-large;
+  font-weight: bold;
+  max-width:768px;          /*Help create the line to be on one-page.*/
+
+}
+.form-signin .checkbox {
+  font-weight: normal;
+  margin-top: 25px;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.header{
+    background-repeat: repeat-y;
+    background-color: #CC0000;
+    height: 90px;
+    margin-bottom: 100px;
+}
+/*PAGE 3: Outer Housing Agreement.*/
+#housing_agreement{
+
+}
+#housing_agreement_inner{
+    height: 200px;
+    overflow-y:scroll;
+    border: 1px solid #a9a9a9;
+
+}
+.center_div{
+    /*MAKE THE DIV CENTER*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center_agree{
+    text-align: center;
+}
+.parent_name{
+    font-size: large;
+}
+
+.add-on{
+    float:right;
+}
+
+.spacing{
+    margin-top: 25px;
+}
+
+/*Thank You Page styles*/
+.thank_you_header{
+    font-weight: bold;
+    text-align:center;
+    font-size:x-large;
+    font-color: #990000; /*Reynolds Red*/
+}

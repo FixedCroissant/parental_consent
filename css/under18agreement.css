@@ -1,0 +1,51 @@
+html {
+    background-color: #F2F2F2; /*10% grey*/
+    max-width: 700px;
+
+}
+#container{
+
+}
+#header{
+    text-align: center;
+}
+
+#header h3{
+    font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 15.4px;
+}
+
+#content{
+    font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+    text-align: center;
+}
+.logo{
+    margin-top:2%;
+    margin-right: 55%;
+}
+.line{
+    border-bottom:1px solid black;
+    width:500px;
+}
+
+#student_information{
+    text-align: left;
+    margin-left: 15%;
+    padding-bottom: 125px;
+}
+.tab-over{
+    padding-right: 25px;
+}
+.tab-over{
+    padding-right: 25px;
+}
