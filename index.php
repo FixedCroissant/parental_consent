@@ -73,10 +73,14 @@
             <li>
                 Date of Resident Application
             </li>
+            <li>
+                Term of Resident Application
+            </li>
         </ul>
         <div class="row">
         <div class="span9 columns">
             <div class="input-group">
+                <!--Input Number 001 - Parental EMail-->
                 <div class="well-sm">
                     <label for="inputEmail">Parental E-Mail</label>
                     <div class="input" id="inputEmail">
@@ -84,26 +88,83 @@
                     </div>
                 </div>
             </div>
-
+            <!--Input Number 002 - Student Date of Birth-->
                 <div class="input-group">
                     <div class="well-sm">
                         <label for="date_of_birth">Student Date of Birth</label>
                         <div class="input-append date" id="date_of_birth" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <input class="span2" name="student_date_of_birth" size="25" type="text" value="MM-DD-YYYY" readonly>
+                            <input class="span2" name="student_date_of_birth" size="25" type="text" value="MM-DD-YYYY" readonly required>
                             <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                         </div>
                     </div>
 
-
+            <!--Input Number 002 - Application of Housing Agreement-->
                         <div class="well-sm">
                             <label for="dateOfHousingApplication_icon">Application of Housing Agreement</label>
                             <div class="input-append date" id="dateOfHousingApplication_icon" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class="span2" size="25" type="text" name="date_of_housing_application" value="MM-DD-YYYY" readonly >
+                                <input class="span2" size="25" type="text" name="date_of_housing_application" value="MM-DD-YYYY" readonly required>
                                 <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                             </div>
 
                         </div>
-                    </div> <!--./Close input group-->
+            <!--Input Number 003 - Term of Housing Application-->
+                    <div class="well-sm">
+                        <label for="termOfHousingApplication_icon">Term of Housing Application</label>
+                        <div class="input-append date" id="termOfHousingApplication_icon" required>
+
+
+                            <!--Dropdown featuring terms-->
+                                <select name="term_of_housing_application">
+                                    <?php
+                                    $long_YEAR = date("Y");          /*LONG YEAR*/
+                                    $short_YEAR = date("y");     /*SHORT YEAR*/
+                                    $new_YEAR = ($short_YEAR+1);
+                                    //Maximum Term is 3 semesters out.
+                                    $maxTERM = 2;
+
+                                    $count=0;
+                                    //Temporarily Comment out ....
+                                    /*for($x=0;$x<$maxTERM;$x++) {
+                                        if($count==0) {
+                                            //Only for the Fall 2015 term.
+                                            echo "<option value='2..8'>Fall $long_YEAR</option>";
+                                            //Spring 2016
+                                            $newYEAR=($long_YEAR+x+1);
+                                            echo "<option value='28'>Spring $newYEAR</option>";
+                                        }
+                                        else if($count>0){
+                                            $newYEAR=($long_YEAR+x+1);
+                                                //Only for the Fall 2016 term.
+                                                echo "<option value='2..8'>Fall $newYEAR</option>";
+                                            $newYEAR=($long_YEAR+x+2);
+                                                //Spring 2017
+                                                echo "<option value='28'>Spring $newYEAR</option>";
+
+                                        }
+
+                                        $count++;
+                                    }*/
+                                    ?>
+                                    <!--Below will need to be removed to have 3 new terms created based on the current date...-->
+                                    <!--Temporary, need to make it automatic generate based on the date that this is presented...-->
+                                    <option value='2158'>Fall 2015</option>
+                                    <option value='2161'>Spring 2016</option>
+                                    <option value='2168'>Fall 2016</option>
+
+                                </select>
+                                <!--End Drop-down featuring terms...-->
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                        </div> <!--./Close input group-->
 
         </div>  <!--./close span9 columns-->
 
@@ -112,7 +173,7 @@
 
 
 
-        <button class="btn btn-lg wolfpackred btn-block spacing" type="submit">Continue Page 2</button>
+        <button class="btn btn-lg wolfpackred btn-block spacing" type="submit">Continue</button>
     </form>
 
 </div> <!-- /container -->

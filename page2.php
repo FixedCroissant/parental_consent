@@ -130,7 +130,8 @@ if (empty($student_date_of_housing_application))
              */
             if (empty($errors)){
                 echo "<br/>";
-                echo "All is well, you can pass through.";
+                //Comment out 11-24-2015....
+                //echo "All is well, you can pass through.";
 
                 /*
                  * RECEIVE AND CONFIRM THE IDENTITY VIA LOOK-UP IN ORACLE.
@@ -142,15 +143,64 @@ if (empty($student_date_of_housing_application))
 
             <br/>
             <br/>
+                <!--Message to the parent-->
              <p>
-                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut
-             </p>
+                 Hello Parent/Guardian of <STRONG>STUDENT FIRST NAME, STUDENT LAST NAME</STRONG><br/>
+                <br/>
+                    Welcome to University Housing! We're glad your student has decided to live on campus with us at NC State University. Before we will assign your student to campus housing, we need you to confirm that your student has your permission to sign the housing agreement. You are receiving this notice because your student will not be 18 years of age at move in.
+                <br/>
+                <br/>
+                    If you intend for your student to live on campus, please click “proceed” to continue and accept the terms of the agreement by completing the parental waiver. Please know that your student will not receive an assignment if the waiver is not completed.
+                <br/><br/>
+                    If you do not intend for your student to live on campus, please click “decline.”
+                <br/><br/>
+                    To view a copy of the housing agreement, please click <a href="#" style="font-weight:bold;">here</a>.
+                <br/><br/>
+                <span style="font-weight:bold; font-size:x-large;">Frequently asked questions:</span> <br/><br/>
+                    <span style="font-weight:bold;">Is the agreement for a semester or for the academic year?</span>
+                    <ul>
+                        <li>The housing agreement is an academic year agreement, covering both the fall and spring terms.</li>
+                    </ul>
+                    <span style="font-weight:bold;">Is there an application fee?</span>
+                    <ul>
+                        <li>No, NC State does not charge an application fee. However, students who complete an application are requesting to be assigned and will be assigned.</li>
+                    </ul>
+                     <span style="font-weight:bold;">May my student decline the housing assignment?</span>
+                    <ul>
+                        <li>Students completing a housing application are requesting on campus housing and will be assigned.  Students may choose to cancel their housing, but students may not decline the assignment. For additional information regarding cancellations, please refer to our <a href="https://housing.dasa.ncsu.edu/costs-agreements/" style="font-weight:bold;">cancellation page.</a></li>
+                    </ul>
+                    <span style="font-weight:bold;">Is there a guarantee that my student will receive their building preference or preferred roommate?</span>
+                    <ul>
+                        <li>Unfortunately University Housing cannot guarantee that a student will receive their preferred building or preferred roommate. However, University Housing does make every effort to meet a student’s request.</li>
+
+                        <br/>
+                         <span style="font-weight:bold;">We do encourage students to:</span>
+                         <br/>
+
+                        <ul>
+                                <li>
+                                    Apply Early
+                                </li>
+                                <li>
+                                    Students who are requesting each other as mutual roommates should apply within 30 days of each other and request the same buildings.
+                                </li>
+                                <li>
+                                    Submit a complete application. The application is NOT complete until a confirmation number is provided.
+                                </li>
+                        </ul>
+                    </ul>
+                    <span style="font-weight:bold;">Should my student participate in a village?</span>
+                    <p>Yes! Years of research and data shows that students who participate in a village have a higher GPA, graduate sooner, feel more connected to the University <br/>
+                    and have an overall higher satisfaction with their experience. Our villages are designed to provide our students with additional academic resources and activities <br/>
+                    outside of the classroom including but not limited to: social activities, cultural trips, recreational excursions, and a close knit community.</p>
+
+                </p>
 
 
 
                 <!--<button class="btn btn-lg wolfpackred btn-block smaller" type="submit"> </button>-->
 
-                    <a href="page3.php" class="btn btn-lg wolfpackred btn-block smaller" alt="Continue to Next Page">Continue to Page 3</a>
+                    <a id='continue_page3Button' href="page3.php" class="btn btn-lg wolfpackred btn-block smaller" alt="Continue to Next Page">Continue</a>
 
 
 

@@ -126,6 +126,9 @@ body {
     float:right;
 }
 
+/*Page 2 Button*/
+#continue_page3Button{margin-top: 100px;}
+
 .spacing{
     margin-top: 25px;
 }
