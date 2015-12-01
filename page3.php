@@ -56,33 +56,41 @@ session_start();
         <img class="img-responsive" src="images/logo.png" alt="NC State University Housing">
         <div class="container">
         <form method="post" action ="page4.php" >
-            <h4>THIS IS THE HTML FORMAT OF THE Housing AGREEMENT</h4>
-            <br/>
-            <br/>
             <div id = "housing_agreement">
                 <div id="housing_agreement_inner">
-                    <img src="images/adobe_PDF_file_icon_32x32.png"/><a href="#" onclick="alert('Export to PDF')">Export to PDF</a>
-                    <p>
-                        <h3>I. Agreement</h3>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-                        <br/>
-                        <h3>II. Pricing</h3>
-                        Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
-                        <br/>
-                        <h3>III. Termination of Agreement</h3>
-                        Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut
-                    <br>
-                    <br>
-                    <br/>
+                    <div id="container">
+                        <div id ="header">
+                            <h3 style="text-align: center">University Housing</h3>
+                            <h5 style="text-align: center; text-decoration:underline;">Under 18 Years of Age Parental Approval Form</h5>
+                        </div>
+                        <div id="content">
+                            The signature below certifies that I have read and fully understand the University Housing Agreement and agree to abide by the conditions and terms published separately and made part of the Agreement
+                            by reference.
 
+                            <br/>
+                            <br/>
+                            Furthermore, I understand my failure to provide complete, accurate, and truthful information on the Housing Application will be grounds to deny or withdraw the Housing Application, or cancel the assignment.
+                            <br/>
+                            <br/>
+                            If the student is not yet 18 years of age by the fist day of check-in for the requested term and year, a parent or guardian's signature is required to indicate acceptance of the conditions and terms of the
+                            University Housing Agreement.
+                            <br/>
+                            <br/>
+                        </div>
 
+                        <div id="student_information">
+                            <span style="text-decoration:underline;">STUDENT INFORMATION</span>
+                            <br/>
+                            Last Name: <span class="line" style="font-weight: bold;">STUDENT LAST NAME</span>  <br/>
+                            First Name: <span class="line" style="font-weight: bold;">STUDENT FIRST NAME</span> <br/>
+                            Middle Name: <span class="line" style="font-weight: bold;">STUDENT MIDDLE INITIAL </span> <br/>
+                            NC State ID Number: <span class="line" style="font-weight: bold;">EMPLID</span> <br/>
+                        </div>
+                        <div id="housing_logo">
 
-
-                <span style="font-size:xx-small;">REV: 2015-11-15</span>
-
-                    </p>
-                    </div>
+                        </div>
+                    </div><!--*.--end of container-->
+                </div><!--End housing agreement inner-->
             </div><!--End Housing Agreement portion of the page-->
 
             <div class="checkbox">

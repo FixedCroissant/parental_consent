@@ -152,7 +152,7 @@ if (empty($student_date_of_housing_application))
                 <br/>
                     If you intend for your student to live on campus, please click “proceed” to continue and accept the terms of the agreement by completing the parental waiver. Please know that your student will not receive an assignment if the waiver is not completed.
                 <br/><br/>
-                    If you do not intend for your student to live on campus, please click “decline.”
+                    If you do not intend for your student to live on campus, please click <strong>“decline request”</strong> on the next page.
                 <br/><br/>
                     To view a copy of the housing agreement, please click <a href="#" style="font-weight:bold;">here</a>.
                 <br/><br/>
