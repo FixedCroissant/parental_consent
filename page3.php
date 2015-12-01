@@ -100,6 +100,10 @@ session_start();
                 <br/>
                 <br/>
                 <button class="btn btn-lg wolfpackred btn-block smaller" type="submit">Submit Authorization</button>
+                <!--New Decline Button-->
+                <!--Note: This button will send a message to all those that have decided against allowing their student to sign a lease.-->
+                <button class="btn btn-lg wolfpackred btn-block smaller" type = "submit">Decline Request</button>
+
         </form>
 
 
