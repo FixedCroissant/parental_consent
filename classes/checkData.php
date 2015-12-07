@@ -6,21 +6,12 @@
  * Time: 8:40 AM
  */
 
-class pullData {
+class checkData {
 
     //Variables
-
     var $parentalEMail;
     var $studentDOB;
     var $housingAgreementSubmission;
-
-
-
-
-        function provideConnection(){
-
-
-        }
 
 
         function IsMatch(){
