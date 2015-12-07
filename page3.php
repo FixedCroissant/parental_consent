@@ -25,7 +25,7 @@ session_start();
         <meta name="author" content="JWilliams">
         <link rel="icon" href="images/favicon.ico">
 
-        <title>University Housing - Parental Concent</title>
+        <title>University Housing - Parental Consent</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,8 @@ session_start();
         <link href="css/signin.css" rel="stylesheet">
         <!--CSS for date picker-->
         <link href="css/datepicker.css" rel="stylesheet">
+        <!--CSS Needed for the prompts-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="scripts/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="scripts/ie-emulation-modes-warning.js"></script>
@@ -45,6 +47,11 @@ session_start();
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!--Date picker for Bootstrap-->
         <script src="scripts/bootstrap-datepicker.js"></script>
+        <!--Import of jQuery UI-->
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <!--Confirmation message that the person wants to decline-->
+        <!--Uses jQuery UI-->
+        <script src="scripts/confirmationOfDecline.js"></script>
     </head>
 
     <body>
@@ -100,43 +107,27 @@ session_start();
             </div>
             <div class="parent_name">
                     <label for ="parental_agreement_name_of_parent">Name of Parent:</label>
-                    <input type="text" class="form-control"  name="parent_authorization_to_allow_student_to_agree" size="50"  />
+                    <input type="text" class="form-control"  name="parent_authorization_to_allow_student_to_agree" size="50"  required required-message="hello"/>
 
             </div>
 
 
                 <br/>
                 <br/>
-                <button class="btn btn-lg wolfpackred btn-block smaller" type="submit">Submit Authorization</button>
+            <div id="buttonContainer_Submit">
+                <button id= "agreementSubmitted" class="btn btn-lg wolfpackred btn-block smaller" type="submit">Submit Authorization</button>
                 <!--New Decline Button-->
                 <!--Note: This button will send a message to all those that have decided against allowing their student to sign a lease.-->
-                <button class="btn btn-lg wolfpackred btn-block smaller" type = "submit">Decline Request</button>
+                <button id ="agreementDECLINED" class="btn btn-lg wolfpackred btn-block smaller" type = "button">Decline Request</button>
+            </div>
 
         </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div> <!-- /container -->
     </div>
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="scripts/ie10-viewport-bug-workaround.js"></script>
     </body>
+    <div id="agreementDECLINED_MESSAGE" title="Are You Sure?">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 5px 0;"></span><span style="font-size:x-small;">You are declining the authorization of this housing agreement of your student. Are you sure?</span></p>
+    </div>
 </html>

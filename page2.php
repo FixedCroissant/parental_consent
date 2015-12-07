@@ -58,7 +58,7 @@ if (empty($student_date_of_housing_application))
         <meta name="author" content="JWilliams">
         <link rel="icon" href="images/favicon.ico">
 
-        <title>University Housing - Parental Concent</title>
+        <title>University Housing - Parental Consent</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">

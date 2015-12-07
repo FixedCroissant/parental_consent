@@ -156,7 +156,9 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
 
 
             echo "<br/>";
-            echo "All is well, you can pass through.";
+
+                //COmmented out
+                //echo "All is well, you can pass through.";
                 echo "<br/>";
                 echo "<br/>";
 

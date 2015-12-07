@@ -133,10 +133,33 @@ body {
     margin-top: 25px;
 }
 
+/*Page 3*/
+#buttonContainer_Submit{
+width: 50%;
+    margin-left: 20%;
+}
+/*Page 3 Submit Authorization Button*/
+#agreementSubmitted{
+
+    float:left;
+}
+/*Page 3 Agreement Decline button*/
+#agreementDECLINED{
+    float:right;
+}
+
+
 /*Thank You Page styles*/
 .thank_you_header{
     font-weight: bold;
     text-align:center;
     font-size:x-large;
     font-color: #990000; /*Reynolds Red*/
+}
+
+
+/*jQuery UI*/
+/*Modal Pop-Up on the 3rd page*/
+#agreementDECLINED_MESSAGE {
+    display:none;
 }

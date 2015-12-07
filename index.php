@@ -26,6 +26,7 @@
     <link href="css/signin.css" rel="stylesheet">
     <!--CSS for date picker-->
     <link href="css/datepicker.css" rel="stylesheet">
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="scripts/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="scripts/ie-emulation-modes-warning.js"></script>
@@ -38,6 +39,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--Date picker for Bootstrap-->
     <script src="scripts/bootstrap-datepicker.js"></script>
+
+
+
+
+
+
 </head>
 
 <body>
@@ -156,23 +163,10 @@
 
 
                         </div>
-
                     </div>
-
-
-
-
-
-
                         </div> <!--./Close input group-->
-
         </div>  <!--./close span9 columns-->
-
-
         </div> <!--./close the div class row-->
-
-
-
         <button class="btn btn-lg wolfpackred btn-block spacing" type="submit">Continue</button>
     </form>
 
