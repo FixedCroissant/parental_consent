@@ -5,6 +5,8 @@
  * User: jjwill10
  * Date: 10/27/2015
  * Time: 10:04 AM
+ * Updated 12/07/2015
+ * Added the ability to read from localhost/Oracle database table
  */
 ?>
 <!DOCTYPE html>
@@ -17,9 +19,7 @@
     <meta name="description" content="A form that allows parents to sign consent for their child.">
     <meta name="author" content="JWilliams">
     <link rel="icon" href="images/favicon.ico">
-
     <title>University Housing - Parental Consent</title>
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -39,16 +39,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--Date picker for Bootstrap-->
     <script src="scripts/bootstrap-datepicker.js"></script>
-
-
-
-
-
-
 </head>
-
 <body>
-
 <script>
     //When the document is ready ...
     $(document).ready( function () {
@@ -62,13 +54,154 @@
         });
     });
 </script>
+<?php
+include('db/log-on.php');
 
+//Check fields for proper values
+include('test_connection_and_class.php');
+
+
+
+
+?>
 <div class="header">
     <!--Add NC State Header-->
     <img class="img-responsive" src="images/logo.png" alt="NC State University Housing">
 <div class="container center_div">
     <!--TO DO ADD FORM SUBMISSION TO CHECK DATA PROVIDED BY THE PARENT-->
-    <form class="form-signin" action="page2.php" method="POST">
+
+    <?php
+    //Check whether or not the request matches the four parameters they are entering.
+    //By default, the MATCH is set to FALSE;
+    $match=FALSE;
+
+
+   //ON SUBMISSION ONLY
+    if(isset($_POST['submit'])){
+            $submit_BUTTON_TO_NEXT_PAGE = $_POST['submit'];
+
+
+        //Check and see if there is a match....
+
+
+        //End check and see if there is a match ...
+
+
+
+
+
+
+        //Only if there is a match, let the person proceed to the next page of the web-application.
+        if($match==TRUE){
+                        echo "<form class='form-signin' action='page2.php' method='POST'>";
+
+        }
+        //If there is no match, let the person know and let them re-submit the page.
+        else
+                        {
+
+                            //Create a new span for the error prompt.
+                        echo "<div style='border: 1px solid black;'>";
+
+                            echo "<form class='form-signin' action='#' method='POST'>";
+                            //Message to our End User that there was no matches using the four fields:
+                            // 01-Parental E-Mail Address.
+                            // 02-Student DOB
+                            // 03 - Date of Housing Application.
+                            // 04 - TERM
+                            $msgToEndUser="We do not find any person with the information you have provided.";
+                            echo "<span style='color: red; font-weight: bold; text-align: center;'>";
+                            echo $msgToEndUser;
+                            echo "</span>";
+
+                            echo "<br/>";
+
+
+
+                            //Parental E-Mail
+                            if(isset($_POST['parental_email'])){
+                                $parental_EMAIL_ADDRESS = $_POST['parental_email'];
+
+
+
+                                //Provide a list of what the person provided in the textboxes.
+                                echo "You have provided:";
+                                echo "<br/>";
+
+                                //Unordered list
+                                echo "<ul>";
+                                echo "<li>";
+                                echo "Parental E-Mail: " . $parental_EMAIL_ADDRESS;
+
+                                echo "</li>";
+                            }
+                            //End Parental E-Mail Address
+
+                            //Print out what they put for the student DOB.
+                            if(isset($_POST['student_date_of_birth'])){
+                                $student_DATEOFBIRTH = $_POST['student_date_of_birth'];
+
+                                echo "<li>";
+                                echo "Student DOB: " . $student_DATEOFBIRTH;
+                                echo "</li>";
+                            }
+                            //End Student DOB
+
+                            //Print out what they put for the student Housing Application
+                            if(isset($_POST['date_of_housing_application'])){
+                                $student_HOUSING_APPLICATION = $_POST['date_of_housing_application'];
+
+                                echo "<li>";
+                                echo "Student Housing Application: " . $student_HOUSING_APPLICATION;
+                                echo "</li>";
+                            }
+                            //End Date of Housing Application
+
+
+                            //Application Term
+                            //Print out what TERM that this request is for...
+                            if(isset($_POST['term_of_housing_application'])){
+                                $student_APPLICATION_TERM = $_POST['term_of_housing_application'];
+
+                                echo "<li>";
+
+                                    //Decode terms
+                                    $term = substr($student_APPLICATION_TERM,3,3);
+                                    //Decode the year.
+                                    $year = substr($student_APPLICATION_TERM,1,2);
+
+
+
+                                //Terms Spring, Summer and Fall
+                                if($term==8){
+                                    $student_APPLICATION_TERM="Fall "."20".$year;
+                                }
+                                elseif($term==5){
+                                    $student_APPLICATION_TERM="Summer "."20".$year;
+                                }
+                                elseif($term==1){
+                                    $student_APPLICATION_TERM="Spring "."20".$year;
+                                }
+
+                                echo "Application Term: " . $student_APPLICATION_TERM;
+                                echo "</li>";
+                            }
+                            //End Application Term
+
+
+
+                            //End unordered list
+                            echo "</ul>";
+
+
+                            //Close error span
+                            echo "</div>";
+
+                        }
+    }
+
+    ?>
+    <form class='form-signin' action='#' method='POST'>
         <h2 class="form-signin-heading">Please provide the following information:</h2>
         <ul>
             <li>
@@ -78,7 +211,7 @@
                 Resident Date of Birth
             </li>
             <li>
-                Date of Resident Application
+                Date of Resident Housing Application
             </li>
             <li>
                 Term of Resident Application
@@ -107,7 +240,7 @@
 
             <!--Input Number 002 - Application of Housing Agreement-->
                         <div class="well-sm">
-                            <label for="dateOfHousingApplication_icon">Application of Housing Agreement</label>
+                            <label for="dateOfHousingApplication_icon">Date of Resident Housing Application</label>
                             <div class="input-append date" id="dateOfHousingApplication_icon" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
                                 <input class="span2" size="25" type="text" name="date_of_housing_application" value="MM-DD-YYYY" readonly required>
                                 <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
@@ -157,7 +290,6 @@
                                     <option value='2158'>Fall 2015</option>
                                     <option value='2161'>Spring 2016</option>
                                     <option value='2168'>Fall 2016</option>
-
                                 </select>
                                 <!--End Drop-down featuring terms...-->
 
@@ -167,8 +299,11 @@
                         </div> <!--./Close input group-->
         </div>  <!--./close span9 columns-->
         </div> <!--./close the div class row-->
-        <button class="btn btn-lg wolfpackred btn-block spacing" type="submit">Continue</button>
+        <button class="btn btn-lg wolfpackred btn-block spacing" name ="submit" type="submit">Continue</button>
     </form>
+
+
+
 
 </div> <!-- /container -->
 </div>

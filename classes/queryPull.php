@@ -77,10 +77,63 @@ class queryPull {
         return $this->STID;
     }
 
-    //Bind the term we want with the query we're trying to find information.
-    function bindTerm($STATEMENT_ID,$termWeWant,$fieldWeAreChanging){
-        //return oci_bind_by_name($STATEMENT_ID,$termWeWant,$fieldWeAreChanging);
+
+    /**
+     * Function to help bind the parental e-mail address to the Oracle/PeopleSoft query lookup.
+     * @param $STATEMENT_ID
+     * @param $databaseFieldWeNeed
+     * @param $fieldWeAreNeed
+     * @return bool
+     */
+        function bindParentalEMailAddress($STATEMENT_ID,$databaseFieldWeNeed,$fieldWeWantToSpecify){
+            return oci_bind_by_name($STATEMENT_ID,$databaseFieldWeNeed,$fieldWeWantToSpecify);
+        }
+
+    /**
+     * Function to help bind the Student's Date of Birth to the Oracle/PeopleSoft query lookup.
+     * @param $STATEMENT_ID
+     * @param $databaseFieldWeNeed
+     * @param $fieldWeAreNeed
+     * @return bool
+     */
+    function bindStudentDateOfBirth($STATEMENT_ID,$databaseFieldWeNeed,$fieldWeWantToSpecify){
+        return oci_bind_by_name($STATEMENT_ID,$databaseFieldWeNeed,$fieldWeWantToSpecify);
     }
+
+
+    /**
+     * Function to help bind the Housing Application Date (From View: Field_Name: NC_PROCESS_DTTM) to the Oracle/PeopleSoft query lookup.
+     * @param $STATEMENT_ID
+     * @param $databaseFieldWeNeed
+     * @param $fieldWeAreNeed
+     * @return bool
+     */
+    function bindResidentHousingApplication($STATEMENT_ID,$databaseFieldWeNeed,$fieldWeWantToSpecify){
+        return oci_bind_by_name($STATEMENT_ID,$databaseFieldWeNeed,$fieldWeWantToSpecify);
+    }
+
+
+    /**
+     * Function to help bind the TERM (or semester e.g. 2151, 2158 etc.) to the Oracle/PeopleSoft query lookup.
+     * @param $STATEMENT_ID
+     * @param $databaseFieldWeNeed
+     * @param $fieldWeAreNeed
+     * @return bool
+     */
+    function bindTerm($STATEMENT_ID,$termWeWant,$fieldWeAreChanging){
+        return oci_bind_by_name($STATEMENT_ID,$termWeWant,$fieldWeAreChanging);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     //Create a new query to read information
     //MUST HAVE A STID to execute the query properly.
