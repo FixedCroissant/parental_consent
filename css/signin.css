@@ -14,6 +14,15 @@ body {
 .container{
     padding-top: 140px;
 }
+.error{
+    text-align: center;
+    color:red;
+    border: 1px solid black;
+}
+.removeerror{
+    border: 0px;
+}
+
 .wolfpackred{
     background-color: #CC0000;
     color: #ffffff;

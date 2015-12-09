@@ -125,16 +125,6 @@ class queryPull {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     //Create a new query to read information
     //MUST HAVE A STID to execute the query properly.
     function queryExecute($STID){
@@ -162,6 +152,41 @@ class queryPull {
          */
 
     }
+
+
+    //Provide the student first name and last name of the first query lookup. (not the count of rows returned).
+    //
+    function getStudentName($STID){
+
+        while($row=oci_fetch_array($STID,OCI_ASSOC)){
+            $first_name = $row["FIRST_NAME"];
+            $last_name = $row["LAST_NAME"];
+        }
+        return $first_name." ".$last_name;
+
+    }
+
+
+    function retrieveCount($STID,$FIELDNAME){
+            while($row=oci_fetch_array($STID,OCI_ASSOC)){
+               $count = $row["COUNT($FIELDNAME)"];
+            }
+        return $count;
+    }
+
+    function setMatch($countOfEMPLIDsReturned){
+        if($countOfEMPLIDsReturned>=1){
+            $match = TRUE;
+        }else{
+            $match = FALSE;
+        }
+        return $match;
+    }
+
+
+
+
+
 
     //Used for reading the database table.
     //

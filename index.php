@@ -39,31 +39,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--Date picker for Bootstrap-->
     <script src="scripts/bootstrap-datepicker.js"></script>
+
+    <!--Check information posted-->
+    <script src="scripts/checkInformation.js"></script>
+    <!--Include jQuery Redirect Plug-in-->
+    <script src="scripts/jquery.redirect.js"></script>
 </head>
-<body>
-<script>
-    //When the document is ready ...
-    $(document).ready( function () {
-        //Date of Birth for the Student/Resident
-        $('#date_of_birth').datepicker({
-            format: "mm/dd/yyyy"
-        });
-        //Student or Resident Date of Housing Application
-        $('#dateOfHousingApplication_icon').datepicker({
-            format: "mm/dd/yyyy"
-        });
-    });
-</script>
+
 <?php
+//Retrieve information to log-on to the Oracle/PeopleSoft Database.
 include('db/log-on.php');
 
-//Check fields for proper values
-include('test_connection_and_class.php');
-
-
-
-
 ?>
+<body>
 <div class="header">
     <!--Add NC State Header-->
     <img class="img-responsive" src="images/logo.png" alt="NC State University Housing">
@@ -80,56 +68,46 @@ include('test_connection_and_class.php');
     if(isset($_POST['submit'])){
             $submit_BUTTON_TO_NEXT_PAGE = $_POST['submit'];
 
-
         //Check and see if there is a match....
-
-
+        //Check fields for proper values
+        //include('test_connection_and_class.php');
         //End check and see if there is a match ...
 
 
-
-
-
+//Commented out on 412/8/2015 as it's necessary to move to AJAX to complete this.*/
 
         //Only if there is a match, let the person proceed to the next page of the web-application.
-        if($match==TRUE){
-                        echo "<form class='form-signin' action='page2.php' method='POST'>";
+        //if($matchesPROVIDED==TRUE){
+                        //echo "<form class='form-signin' action='page2.php' method='POST'>";
+                        //Run this script
+                        //echo "<script src='scripts/changeFORM.js'>";
 
-        }
+        //}
         //If there is no match, let the person know and let them re-submit the page.
-        else
+        /*else
                         {
-
-                            //Create a new span for the error prompt.
-                        echo "<div style='border: 1px solid black;'>";
-
-                            echo "<form class='form-signin' action='#' method='POST'>";
+                            echo "<div style='border: 1px solid black; text-align: center;'>";
                             //Message to our End User that there was no matches using the four fields:
                             // 01-Parental E-Mail Address.
                             // 02-Student DOB
                             // 03 - Date of Housing Application.
                             // 04 - TERM
-                            $msgToEndUser="We do not find any person with the information you have provided.";
+                            $msgToEndUser="We do not find any resident with the information you have provided.";
                             echo "<span style='color: red; font-weight: bold; text-align: center;'>";
                             echo $msgToEndUser;
                             echo "</span>";
 
                             echo "<br/>";
-
-
-
                             //Parental E-Mail
                             if(isset($_POST['parental_email'])){
                                 $parental_EMAIL_ADDRESS = $_POST['parental_email'];
-
-
 
                                 //Provide a list of what the person provided in the textboxes.
                                 echo "You have provided:";
                                 echo "<br/>";
 
                                 //Unordered list
-                                echo "<ul>";
+                                echo "<ul style='text-align: left;'>";
                                 echo "<li>";
                                 echo "Parental E-Mail: " . $parental_EMAIL_ADDRESS;
 
@@ -193,16 +171,34 @@ include('test_connection_and_class.php');
                             //End unordered list
                             echo "</ul>";
 
-
-                            //Close error span
+                            //Close the error message div.
                             echo "</div>";
+                        }*/
+    } //end of $_POST submit.
 
-                        }
-    }
 
     ?>
-    <form class='form-signin' action='#' method='POST'>
-        <h2 class="form-signin-heading">Please provide the following information:</h2>
+    <script>
+        //When the document is ready ...
+        $(document).ready( function () {
+            //Date of Birth for the Student/Resident
+            $('#date_of_birth').datepicker({
+                format: "mm/dd/yyyy"
+            });
+            //Student or Resident Date of Housing Application
+            $('#dateOfHousingApplication_icon').datepicker({
+                format: "mm/dd/yyyy"
+            });
+        });
+    </script>
+
+    <!--If there are any errors, go ahead and put information here.-->
+    <div id="errors">
+        &nbsp;
+    </div>
+    <form ID='submissionFORM' class="form-signin"  method="post" action="#">
+        <!--<form ID='submissionFORM' class='form-signin' action='#' method='POST'>-->
+       <h2 class="form-signin-heading">Please provide the following information:</h2>
         <ul>
             <li>
                 Parental E-Mail Address
@@ -224,7 +220,7 @@ include('test_connection_and_class.php');
                 <div class="well-sm">
                     <label for="inputEmail">Parental E-Mail</label>
                     <div class="input" id="inputEmail">
-                        <input class="span2" size="50" type="text" placeholder="Parental EMail Address (e.g. wolf@ncsu.edu)" name="parental_email"required autofocus="">
+                        <input class="span2" size="50" type="text" placeholder="Parental EMail Address (e.g. wolf@ncsu.edu)" id="parental_email" name="parental_email" required autofocus=""/>
                     </div>
                 </div>
             </div>
@@ -233,7 +229,7 @@ include('test_connection_and_class.php');
                     <div class="well-sm">
                         <label for="date_of_birth">Student Date of Birth</label>
                         <div class="input-append date" id="date_of_birth" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <input class="span2" name="student_date_of_birth" size="25" type="text" value="MM-DD-YYYY" readonly required>
+                            <input class="span2" id="student_date_of_birth" name="student_date_of_birth" size="25" type="text" value="MM-DD-YYYY" readonly required>
                             <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                         </div>
                     </div>
@@ -242,7 +238,7 @@ include('test_connection_and_class.php');
                         <div class="well-sm">
                             <label for="dateOfHousingApplication_icon">Date of Resident Housing Application</label>
                             <div class="input-append date" id="dateOfHousingApplication_icon" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class="span2" size="25" type="text" name="date_of_housing_application" value="MM-DD-YYYY" readonly required>
+                                <input class="span2" size="25" type="text" id="date_of_housing_application" name="date_of_housing_application" value="MM-DD-YYYY" readonly required>
                                 <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                             </div>
 
@@ -254,7 +250,7 @@ include('test_connection_and_class.php');
 
 
                             <!--Dropdown featuring terms-->
-                                <select name="term_of_housing_application">
+                                <select id ="term_of_housing_application" name="term_of_housing_application">
                                     <?php
                                     $long_YEAR = date("Y");          /*LONG YEAR*/
                                     $short_YEAR = date("y");     /*SHORT YEAR*/
@@ -299,14 +295,16 @@ include('test_connection_and_class.php');
                         </div> <!--./Close input group-->
         </div>  <!--./close span9 columns-->
         </div> <!--./close the div class row-->
-        <button class="btn btn-lg wolfpackred btn-block spacing" name ="submit" type="submit">Continue</button>
-    </form>
+        <button class="btn btn-lg wolfpackred btn-block spacing" name ="submit" type="submit"> Continue</button>
+    </form><!-- /form -->
+
 
 
 
 
 </div> <!-- /container -->
-</div>
+</div><!-- /header-->
+
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="scripts/ie10-viewport-bug-workaround.js"></script>

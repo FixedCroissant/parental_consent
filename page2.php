@@ -15,15 +15,24 @@ session_start();
 $parental_email_address = $_POST["parental_email"];
 $student_date_of_birth = $_POST["student_date_of_birth"];
 $student_date_of_housing_application=$_POST["date_of_housing_application"];
+//TODO
+//ADD TERM HERE
 
+//ADD STUDENT FIRST NAME
+$student_first_name = $_POST['retrieved_student_first_name'];
+//ADD STUDENT LAST NAME
+$student_last_name = $_POST['retrieved_student_last_name'];
 
 //Set as Session Values
 $_SESSION['parental_email_address']=$parental_email_address;
 $_SESSION['student_date_of_birth']=$student_date_of_birth;
 $_SESSION['student_date_of_housing_application']=$student_date_of_housing_application;
 
+//ADD TERM SESSION VARIABLE
 
+$_SESSION['RETRIEVED_STU_FIRST_NAMWE'] = $student_first_name;
 
+$_SESSION['RETRIEVED_STU_LAST_NAME'] = $student_last_name;
 
 
 /**
@@ -145,7 +154,7 @@ if (empty($student_date_of_housing_application))
             <br/>
                 <!--Message to the parent-->
              <p>
-                 Hello Parent/Guardian of <STRONG>STUDENT FIRST NAME, STUDENT LAST NAME</STRONG><br/>
+                 Hello Parent/Guardian of <STRONG><?php  echo $student_first_name . " ".$student_last_name; ?></STRONG><br/>
                 <br/>
                     Welcome to University Housing! We're glad your student has decided to live on campus with us at NC State University. Before we will assign your student to campus housing, we need you to confirm that your student has your permission to sign the housing agreement. You are receiving this notice because your student will not be 18 years of age at move in.
                 <br/>

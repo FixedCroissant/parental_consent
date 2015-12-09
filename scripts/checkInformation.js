@@ -9,18 +9,15 @@
 $( document ).ready(function() {
 
     $('form').on('submit', function (e) {
+        //Prevent the form from submitting through the use of the enter key.
+        //Prevent the form from doing anything until the commands below are completed.
         e.preventDefault();
 
-        //Use the function created below.
+        //Utilize the function that was created below.
         checkData();
     });
 
 });
-
-
-
-
-
 
 
 function checkData() {
@@ -37,7 +34,6 @@ function checkData() {
         var studentTERM = $("#term_of_housing_application").val();
         var housing_application_process_date=$("#date_of_housing_application").val();
         var student_dob = $("#student_date_of_birth").val();
-
         //End dynamic values from the index.php page.
 
 
