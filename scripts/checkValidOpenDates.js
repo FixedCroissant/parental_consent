@@ -180,6 +180,11 @@ function getTermValue(){
     return termCODE;
 }
 
+function displayTermsAvailable(arrayName){
 
+    for(i=0;i<arrayName.length;i++){
+        document.write(arrayName[i]+",");
+    }
+}
 
 
