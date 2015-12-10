@@ -48,9 +48,32 @@ function checkData() {
             //After loading information, do the following...
             .done(function( data ) {
 
+
+                //Breakup the data returned.
+                //First piece of text is firstName
+                //Second piece of text is lastName
+                //Third piece of text is how many matches are available.
+
+                //Everything is housed within data variable.
+
+                //Array of the Data Returned
+                var StudentInformation = data.split(" ");
+
+                //Student First Name
+                var studentFirstName = StudentInformation[0];
+                //Student Last Name
+                var studentLastName = StudentInformation[1];
+                //Matches
+                var matches = StudentInformation[2];
+
+                //To Do
+                //Need to also pull student EMPLID and TERM.
+                //End To Do
+
+
                 //Using BOOLEAN setMATCH() from the queryPull.php page.
                 //1 = True, if it's not 1, then we could assume that it's going to be false.
-                if(data!=1){
+                if(matches!=1){
                     //For testing and debugging purposes only...
                     //alert('Nothing has returned!');
 
@@ -88,7 +111,7 @@ function checkData() {
                     //Go to page2.php with my post parameters.
                     //example....
                     //$().redirect('demo.php', {'arg1': 'value1', 'arg2': 'value2'});
-                    $.redirect('page2.php', {'parental_email': 'email', 'student_date_of_birth': 'student_dob', 'date_of_housing_application': 'housing_application_process_date','retrieved_student_first_name': 'THIS IS THE TEST FIRST NAME','retrieved_student_last_name': 'THIS IS THE TEST LAST NAME!!!!'});
+                    $.redirect('page2.php', {'parental_email': 'email', 'student_date_of_birth': 'student_dob', 'date_of_housing_application': 'housing_application_process_date','retrieved_student_first_name': studentFirstName,'retrieved_student_last_name': studentLastName});
                     //END NEW
 
 
