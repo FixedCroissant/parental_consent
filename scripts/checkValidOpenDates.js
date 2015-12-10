@@ -7,10 +7,10 @@
  */
 
 //Get Today's Date....
-var todaysDate = new Date(2016,9,02);          /*July 02, 2015.*/
+//var todaysDate = new Date(2015,9,15);          /*October 15, 2015.*/
 
 //var todaysDate = new Date(2018,00,15);          /*January 02, 2017.*/
-//var todaysDate = new Date();                      /*Current Date and Time*/
+var todaysDate = new Date();                      /*Current Date and Time*/
 
 var month = todaysDate.getDate(); /*returns month*/
 var year = todaysDate.getFullYear(); /*Returns year*/
@@ -53,24 +53,18 @@ function incrementDates(todaysDate){
         //Set the new year of the new Summer 2 closing date.
         closeSummer2Date.setFullYear(year+1);
     }
-    //Fall open date
-    //Must increment the year of the Fall opening date if it has been passed.
-    //Fall does not really increment as it's January - December of the calendar year.
-    /*
-    if(todaysDate>openFallDate){
-        //Set the new year of the new Fall closing date.
-        openFallDate.setFullYear(year+1);
-        //Set the new year of the new Fall closing date.
-        closeFallDate.setFullYear(year+1);
 
-    }*/
-    //Spring open date
-    if(todaysDate>closeSpringDate){
+    //Make the Spring opening date 1 year higher than the current date, if today's date has passed it.
+    if(todaysDate>openSpringDate){
+        openSpringDate.setFullYear(year+1);
+    }
+
+    //Make the Spring closing date 1 year higher than the current date if today's date has passed the value.
+    else if(todaysDate>closeSpringDate){
         //Set the new year of the new Spring opening date
         closeSpringDate.setFullYear(year+1);
-
-
     }
+
 
 }
 
@@ -84,7 +78,6 @@ function dateCheck(currentDate,dateRangeStart,dateRangeEnd){
     //alert("false");
     return false;
 }
-
 
 function checkValidOpenDatesFall(){
     //Run the incremental date updates...
@@ -151,11 +144,18 @@ function checkValidOpenDatesSpring(){
     //Run the incremental date updates...
     incrementDates(todaysDate);
 
-    //Get against Spring 1 opening and closing dates.
+
+
+    if(todaysDate<openSpringDate){
+                //Get against Spring 1 opening and closing dates.
+                //Remove the year by 1, so that it can be picked the year (during the fall term)
+                // before the actual Spring semester starts.
+                openSpringDate.setFullYear(year);
+    }else{
+        openSpringDate.setFullYear(year+1);
+    }
+
     var validForSpring1  = dateCheck(todaysDate,openSpringDate,closeSpringDate);
-
-
-
     if(validForSpring1==1){
         //Trim year to two digits of the closing Spring date, as it will have
         //the upcoming year on it.
@@ -167,17 +167,40 @@ function checkValidOpenDatesSpring(){
     }
     //Do nothing
     else{
-
-
     }
-
 
     return validForSpring1;
 }
 
-
 function getTermValue(){
     return termCODE;
+}
+
+function getValidTermsforDropDown(arrayName){
+    for(i=0;i<arrayName.length;i++){
+        //Term, Spring, Summer 1 or Summer 2, Fal.
+        var Term = arrayName[i].toString().substr(3,4);
+
+        //Check the kind of term it is based on the available number
+        if(Term==8){
+            Term="Fall";
+        }
+        else if(Term==1){
+            Term="Spring";
+        }
+        else if (Term==6){
+            Term="Summer 1";
+        }
+        else if (Term==7){
+            Term="Summer 2";
+        }
+        //Two Year Digits
+        var termTWOYEAR = arrayName[i].toString().substr(1,2);
+
+
+
+        document.write("<option value="+arrayName[i]+">"+Term+" "+"20"+termTWOYEAR+"</option>");
+    }
 }
 
 function displayTermsAvailable(arrayName){

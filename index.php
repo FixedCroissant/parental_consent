@@ -40,10 +40,15 @@
     <!--Date picker for Bootstrap-->
     <script src="scripts/bootstrap-datepicker.js"></script>
 
-    <!--Check information posted-->
+    <!--Check information posted for the search for a particular resident to be valid.-->
     <script src="scripts/checkInformation.js"></script>
     <!--Include jQuery Redirect Plug-in-->
     <script src="scripts/jquery.redirect.js"></script>
+    <!--Get correct academic terms available, based on the current date-->
+    <script src="scripts/checkValidOpenDates.js"></script>
+    <!--Initialize valid dates-->
+    <script src="scripts/initializeValidDates.js"></script>
+
 </head>
 
 <?php
@@ -251,12 +256,13 @@ include('db/log-on.php');
 
                             <!--Dropdown featuring terms-->
                                 <select id ="term_of_housing_application" name="term_of_housing_application">
-                                    
-                                    <!--Below will need to be removed to have 3 new terms created based on the current date...-->
-                                    <!--Temporary, need to make it automatic generate based on the date that this is presented...-->
-                                    <option value='2158'>Fall 2015</option>
-                                    <option value='2161'>Spring 2016</option>
-                                    <option value='2168'>Fall 2016</option>
+
+                                    <script>
+                                        //Dynamic dropdown based on current date.
+                                        getValidTermsforDropDown(availableTerms);
+                                    </script>
+                                    <!--END TEMPORARY-->
+
                                 </select>
                                 <!--End Drop-down featuring terms...-->
 

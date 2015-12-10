@@ -88,6 +88,32 @@ function checkData() {
                     $("#errors").html();
 
 
+                    //Two Year Digits of the term
+                    //selected, so that is in a readable format.
+                    //Must assign the value above the lastDIGITS_OF_TERMVALUE below
+                    //as there would be inconsistency in the format of the string value.
+                    var termTWOYEAR = studentTERM.toString().substr(1,2);
+
+
+                    //Now, utilize the term values into a readable format that end users will be able
+                    //to understand easily remember which value from the drop-down they selected.
+                    var lastDIGITS_OF_TERMVALUE = studentTERM.substr(3,4);
+
+                    if(lastDIGITS_OF_TERMVALUE=="8"){
+                        studentTERM="Fall";
+                    }
+                    else if(lastDIGITS_OF_TERMVALUE=="1"){
+                        studentTERM="Spring";
+                    }
+                    else if (lastDIGITS_OF_TERMVALUE=="6"){
+                        studentTERM="Summer 1";
+                    }
+                    else if (lastDIGITS_OF_TERMVALUE=="7"){
+                        studentTERM="Summer 2";
+                    }
+                    //End assignments of names.
+
+
                     //Let people know of what they put in the system and notify
                     //that there are NO results found.
 
@@ -101,7 +127,7 @@ function checkData() {
                     $("#errors").append("<br/>");
                     $("#errors").append("Date of Housing Application: "+housing_application_process_date);
                     $("#errors").append("<br/>");
-                    $("#errors").append("Term of Housing Application: "+studentTERM);
+                    $("#errors").append("Term of Housing Application: "+studentTERM + " " + 20+termTWOYEAR);
                 }
                 //There is a match from the database lookup.
                 else {
