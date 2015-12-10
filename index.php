@@ -229,7 +229,7 @@ include('db/log-on.php');
                     <div class="well-sm">
                         <label for="date_of_birth">Student Date of Birth</label>
                         <div class="input-append date" id="date_of_birth" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <input class="span2" id="student_date_of_birth" name="student_date_of_birth" size="25" type="text" value="MM-DD-YYYY" readonly required>
+                            <input class="span2" id="student_date_of_birth" name="student_date_of_birth" size="25" type="text"  placeholder="MM/DD/YYYY"  required autofocus="">
                             <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                         </div>
                     </div>
@@ -238,7 +238,7 @@ include('db/log-on.php');
                         <div class="well-sm">
                             <label for="dateOfHousingApplication_icon">Date of Resident Housing Application</label>
                             <div class="input-append date" id="dateOfHousingApplication_icon" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class="span2" size="25" type="text" id="date_of_housing_application" name="date_of_housing_application" value="MM-DD-YYYY" readonly required>
+                                <input class="span2" size="25" type="text" id="date_of_housing_application" name="date_of_housing_application" placeholder="MM/DD/YYYY"  required autofocus="">
                                 <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                             </div>
 
