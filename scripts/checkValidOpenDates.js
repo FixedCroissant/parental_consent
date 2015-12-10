@@ -7,20 +7,18 @@
  */
 
 //Get Today's Date....
-//var todaysDate = new Date(2015,12,02);          /*January 02, 2016.*/
-var todaysDate = new Date(2016,09,02);          /*January 02, 2017.*/
+var todaysDate = new Date(2016,9,02);          /*July 02, 2015.*/
 
+//var todaysDate = new Date(2018,00,15);          /*January 02, 2017.*/
 //var todaysDate = new Date();                      /*Current Date and Time*/
 
 var month = todaysDate.getDate(); /*returns month*/
 var year = todaysDate.getFullYear(); /*Returns year*/
 
 var currentMonthYear = month+"/"+year;
+
+var termCODE;               /*TERM CODE USED FOR PEOPLE SOFT. i.e. 2151,2158,2168.*/
 //End Necessary Variables.
-
-
-
-
 
 
 //Open Date of Summer 1
@@ -28,14 +26,14 @@ var currentMonthYear = month+"/"+year;
 var openSummer1Date = new Date(year, 3, 15);
 var closeSummer1Date = new Date(year, 5, 30);
 //Check Summer 2
-var openSummer2Date = new Date(year, 4, 15);
+var openSummer2Date = new Date(year, 4, 0);
 var closeSummer2Date= new Date(year, 7, 30);
 //Check Fall
 var openFallDate = new Date(year-1, 12, 01);      /*THis value automatically goes to January of the next year.*/
 var closeFallDate= new Date(year, 11, 31);
 //Check Spring
 var openSpringDate = new Date(year, 9, 01);
-var closeSpringDate= new Date(year+1, 4, 30);
+var closeSpringDate= new Date(year, 4, 30);
 
 
 function incrementDates(todaysDate){
@@ -69,7 +67,7 @@ function incrementDates(todaysDate){
     //Spring open date
     if(todaysDate>closeSpringDate){
         //Set the new year of the new Spring opening date
-        openSpringDate.setFullYear(year+1);
+        closeSpringDate.setFullYear(year+1);
 
 
     }
@@ -89,196 +87,99 @@ function dateCheck(currentDate,dateRangeStart,dateRangeEnd){
 
 
 function checkValidOpenDatesFall(){
-
     //Run the incremental date updates...
     incrementDates(todaysDate);
-
 
     //Get against Fall terms
-    var valid  = dateCheck(todaysDate,openFallDate,closeFallDate);
+    var validForFall  = dateCheck(todaysDate,openFallDate,closeFallDate);
 
-    //Date we are comparing the date to is:
-    document.write("<br/>");
+    if(validForFall==1){
+        //Trim year to two digits.
+        year2DIGITS = year.toString().substr(2,2);
+        termCODE="2"+year2DIGITS+"8";
+    }
+    //Do nothing
+    else{
 
-    //Print out to the screen...
-    document.write("<STRONG>"+todaysDate+"</STRONG>");
 
-    document.write("<br/>");
+    }
 
-    //Open Fall Date.
-    document.write(openFallDate);
-
-    document.write("<br/>");
-
-    //Close Fall date
-    document.write(closeFallDate);
-
-    document.write("<br/>");
-
-    document.write("VALID FOR FALL ?"+valid);
-
+    return validForFall;
 }
 
-
 function checkValidOpenDatesSummer1(){
-
     //Run the incremental date updates...
     incrementDates(todaysDate);
-
 
     //Get against Summer 1 opening and closing dates.
     var validForSummer1  = dateCheck(todaysDate,openSummer1Date,closeSummer1Date);
 
-    //Date we are comparing the date to is:
-    document.write("<br/>");
+    if(validForSummer1==1){
+        //Trim year to two digits.
+        year2DIGITS = year.toString().substr(2,2);
+        termCODE="2"+year2DIGITS+"6";
+    }
+    //Do nothing
+    else{
+    }
 
-    //Print out to the screen...
-    document.write("<STRONG>"+todaysDate+"</STRONG>");
-
-    document.write("<br/>");
-
-    //Open Fall Date.
-    document.write(openSummer1Date);
-
-    document.write("<br/>");
-
-    //Close Fall date
-    document.write(closeSummer1Date);
-
-    document.write("<br/>");
-
-
-    document.write("VALID FOR SUMMER 1 ?"+validForSummer1);
+    return validForSummer1;
 
 }
 
 function checkValidOpenDatesSummer2(){
-
     //Run the incremental date updates...
     incrementDates(todaysDate);
-
-
     //Get against Summer 2 opening and closing dates.
     var validForSummer2  = dateCheck(todaysDate,openSummer2Date,closeSummer2Date);
 
-    //Date we are comparing the date to is:
-    document.write("<br/>");
-
-    //Print out to the screen...
-    document.write("<STRONG>"+todaysDate+"</STRONG>");
-
-    document.write("<br/>");
-
-    //Open Fall Date.
-    document.write(openSummer2Date);
-
-    document.write("<br/>");
-
-    //Close Fall date
-    document.write(closeSummer2Date);
-
-    document.write("<br/>");
+    if(validForSummer2==1){
+        //Trim year to two digits.
+        year2DIGITS = year.toString().substr(2,2);
+        termCODE="2"+year2DIGITS+"7";
+    }
+    //Do nothing
+    else{
 
 
-    document.write("VALID FOR SUMMER 2 ?" + validForSummer2);
+    }
 
+    return validForSummer2;
 }
 
-
-
-
-
-
-
 function checkValidOpenDatesSpring(){
-
     //Run the incremental date updates...
     incrementDates(todaysDate);
-
 
     //Get against Spring 1 opening and closing dates.
     var validForSpring1  = dateCheck(todaysDate,openSpringDate,closeSpringDate);
 
-    //Date we are comparing the date to is:
-    document.write("<br/>");
-
-    //Print out to the screen...
-    document.write("<STRONG>"+todaysDate+"</STRONG>");
-
-    document.write("<br/>");
-
-    //Open Fall Date.
-    document.write(openSpringDate);
-
-    document.write("<br/>");
-
-    //Close Fall date
-    document.write(closeSpringDate);
-
-    document.write("<br/>");
 
 
-    document.write("VALID FOR SPRING TERM ?" + validForSpring1);
+    if(validForSpring1==1){
+        //Trim year to two digits of the closing Spring date, as it will have
+        //the upcoming year on it.
+        //E.g. displaying information during Oct 2015 will show Spring 2016 or 2161 information.
+        yearForSpringUpdate=closeSpringDate.getFullYear();
 
+        year2DIGITS_SPRING = yearForSpringUpdate.toString().substr(2,2);
+        termCODE="2"+year2DIGITS_SPRING+"1";
+    }
+    //Do nothing
+    else{
+
+
+    }
+
+
+    return validForSpring1;
+}
+
+
+function getTermValue(){
+    return termCODE;
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- /*
- //Today's date....
- document.write("TODAYS DATE: "+todaysDate);
-
-
- document.write("<br>");
-
-
-
- //Open Summer 1 Open Date
- document.writeln("Summer 1 Open DATE: "+openSummer1Date);
-
- document.write("<br>");
-
- document.writeln("Summer 1 Close DATE: "+closeSummer1Date);
-
- document.write("<br>");
-
- //Open Summer 2 Open Date
- document.writeln("Summer 2 Open DATE: "+openSummer2Date);
-
- document.write("<br>");
-
- //Close Summer 2 Date
- document.writeln("Summer 2 Close DATE: "+closeSummer2Date);
-
- document.write("<br>");
-
- //Open Fall Date
- document.writeln("Fall open DATE: "+openFallDate);
-
- document.write("<br>");
-
- //Close Fall Date
- document.writeln("Fall close DATE: "+closeFallDate);
- */
