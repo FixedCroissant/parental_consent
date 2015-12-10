@@ -163,7 +163,7 @@ if (empty($student_date_of_housing_application))
                 <br/><br/>
                     If you do not intend for your student to live on campus, please click <strong>“decline request”</strong> on the next page.
                 <br/><br/>
-                    To view a copy of the housing agreement, please click <a href="#" style="font-weight:bold;">here</a>.
+                    To view a copy of the housing agreement, please click <a href="https://housing.ncsu.edu/agreements/" title = "NC State Housing Agreements" style="font-weight:bold;">here</a>.
                 <br/><br/>
                 <span style="font-weight:bold; font-size:x-large;">Frequently asked questions:</span> <br/><br/>
                     <span style="font-weight:bold;">Is the agreement for a semester or for the academic year?</span>
