@@ -229,7 +229,7 @@ include('db/log-on.php');
                     <div class="well-sm">
                         <label for="date_of_birth">Student Date of Birth</label>
                         <div class="input-append date" id="date_of_birth" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                            <input class="span2" id="student_date_of_birth" name="student_date_of_birth" size="25" type="text"  placeholder="MM/DD/YYYY"  required autofocus="">
+                            <input class="span2" id="student_date_of_birth" name="student_date_of_birth" size="25" type="text"  placeholder="MM/DD/YYYY"  readonly required autofocus="">
                             <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                         </div>
                     </div>
@@ -238,7 +238,7 @@ include('db/log-on.php');
                         <div class="well-sm">
                             <label for="dateOfHousingApplication_icon">Date of Resident Housing Application</label>
                             <div class="input-append date" id="dateOfHousingApplication_icon" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class="span2" size="25" type="text" id="date_of_housing_application" name="date_of_housing_application" placeholder="MM/DD/YYYY"  required autofocus="">
+                                <input class="span2" size="25" type="text" id="date_of_housing_application" name="date_of_housing_application" placeholder="MM/DD/YYYY"  readonly required autofocus="">
                                 <span class="add-on"><i class="glyphicon  glyphicon-calendar"></i></span>
                             </div>
 
@@ -251,36 +251,7 @@ include('db/log-on.php');
 
                             <!--Dropdown featuring terms-->
                                 <select id ="term_of_housing_application" name="term_of_housing_application">
-                                    <?php
-                                    $long_YEAR = date("Y");          /*LONG YEAR*/
-                                    $short_YEAR = date("y");     /*SHORT YEAR*/
-                                    $new_YEAR = ($short_YEAR+1);
-                                    //Maximum Term is 3 semesters out.
-                                    $maxTERM = 2;
-
-                                    $count=0;
-                                    //Temporarily Comment out ....
-                                    /*for($x=0;$x<$maxTERM;$x++) {
-                                        if($count==0) {
-                                            //Only for the Fall 2015 term.
-                                            echo "<option value='2..8'>Fall $long_YEAR</option>";
-                                            //Spring 2016
-                                            $newYEAR=($long_YEAR+x+1);
-                                            echo "<option value='28'>Spring $newYEAR</option>";
-                                        }
-                                        else if($count>0){
-                                            $newYEAR=($long_YEAR+x+1);
-                                                //Only for the Fall 2016 term.
-                                                echo "<option value='2..8'>Fall $newYEAR</option>";
-                                            $newYEAR=($long_YEAR+x+2);
-                                                //Spring 2017
-                                                echo "<option value='28'>Spring $newYEAR</option>";
-
-                                        }
-
-                                        $count++;
-                                    }*/
-                                    ?>
+                                    
                                     <!--Below will need to be removed to have 3 new terms created based on the current date...-->
                                     <!--Temporary, need to make it automatic generate based on the date that this is presented...-->
                                     <option value='2158'>Fall 2015</option>
