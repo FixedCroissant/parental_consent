@@ -205,7 +205,7 @@ $connectionForParentalConsent->queryExecute($STID_PARENTAL_CONSENT_CONNECTION_FI
 //Get the first and last name of the query lookup.
 $student_FIRST_LAST_NAME = $connectionForParentalConsent->getStudentName($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
 
-echo $student_FIRST_LAST_NAME;
+echo $student_FIRST_LAST_NAME." ";
 
 
 
