@@ -13,6 +13,7 @@ session_start();
 //Get values from PAGE 2
 
 
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -84,14 +85,14 @@ session_start();
                             <br/>
                             <br/>
                         </div>
-
+                        <!--Add pulled student information to the page-->
                         <div id="student_information">
                             <span style="text-decoration:underline;">STUDENT INFORMATION</span>
                             <br/>
-                            Last Name: <span class="line" style="font-weight: bold;">STUDENT LAST NAME</span>  <br/>
-                            First Name: <span class="line" style="font-weight: bold;">STUDENT FIRST NAME</span> <br/>
-                            Middle Name: <span class="line" style="font-weight: bold;">STUDENT MIDDLE INITIAL </span> <br/>
-                            NC State ID Number: <span class="line" style="font-weight: bold;">EMPLID</span> <br/>
+                            Last Name: <span class="line" style="font-weight: bold;"><?php echo $_SESSION["RETRIEVED_STU_LAST_NAME"];                      ?></span><br/>
+                            First Name: <span class="line" style="font-weight: bold;"><?php echo $_SESSION["RETRIEVED_STU_FIRST_NAME"];                    ?></span><br/>
+                            Middle Name: <span class="line" style="font-weight: bold;"><?php echo $_SESSION['RETRIEVED_STU_MID_NAME'];                     ?></span><br/>
+                            NC State ID Number: <span class="line" style="font-weight: bold;"><?php echo $_SESSION['RETRIEVED_STU_EMPLID'];                ?></span><br/>
                         </div>
                         <div id="housing_logo">
 

@@ -7,7 +7,7 @@
  */
 
 //Get Today's Date....
-//var todaysDate = new Date(2015,9,15);          /*October 15, 2015.*/
+//var todaysDate = new Date(2016,5,20);          /*October 15, 2015.*/
 
 //var todaysDate = new Date(2018,00,15);          /*January 02, 2017.*/
 var todaysDate = new Date();                      /*Current Date and Time*/

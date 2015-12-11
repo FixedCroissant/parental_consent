@@ -22,6 +22,11 @@ $student_date_of_housing_application=$_POST["date_of_housing_application"];
 $student_first_name = $_POST['retrieved_student_first_name'];
 //ADD STUDENT LAST NAME
 $student_last_name = $_POST['retrieved_student_last_name'];
+//ADD STUDENT MIDDLE NAME
+$student_middle_name = $_POST['retrieved_student_middle_name'];
+//ADD STUDENT ID
+$student_emplid = $_POST['retrieved_student_emplid'];
+
 
 //Set as Session Values
 $_SESSION['parental_email_address']=$parental_email_address;
@@ -30,9 +35,13 @@ $_SESSION['student_date_of_housing_application']=$student_date_of_housing_applic
 
 //ADD TERM SESSION VARIABLE
 
-$_SESSION['RETRIEVED_STU_FIRST_NAMWE'] = $student_first_name;
+$_SESSION['RETRIEVED_STU_FIRST_NAME'] = $student_first_name;
 
 $_SESSION['RETRIEVED_STU_LAST_NAME'] = $student_last_name;
+
+$_SESSION['RETRIEVED_STU_MID_NAME'] = $student_middle_name;
+
+$_SESSION['RETRIEVED_STU_EMPLID'] = $student_emplid;
 
 
 /**
@@ -176,7 +185,7 @@ if (empty($student_date_of_housing_application))
                     </ul>
                      <span style="font-weight:bold;">May my student decline the housing assignment?</span>
                     <ul>
-                        <li>Students completing a housing application are requesting on campus housing and will be assigned.  Students may choose to cancel their housing, but students may not decline the assignment. For additional information regarding cancellations, please refer to our <a href="https://housing.dasa.ncsu.edu/costs-agreements/" style="font-weight:bold;">cancellation page.</a></li>
+                        <li>Students completing a housing application are requesting on campus housing and will be assigned.  Students may choose to cancel their housing, but students may not decline the assignment. For additional information regarding cancellations, please refer to our <a href="https://housing.ncsu.edu/cancellations" style="font-weight:bold;">cancellation page.</a></li>
                     </ul>
                     <span style="font-weight:bold;">Is there a guarantee that my student will receive their building preference or preferred roommate?</span>
                     <ul>
@@ -208,18 +217,7 @@ if (empty($student_date_of_housing_application))
 
 
                 <!--<button class="btn btn-lg wolfpackred btn-block smaller" type="submit"> </button>-->
-
-                    <a id='continue_page3Button' href="page3.php" class="btn btn-lg wolfpackred btn-block smaller" alt="Continue to Next Page">Continue</a>
-
-
-
-
-
-
-
-
-
-
+                    <a id='continue_page3Button' href="page3.php" class="btn btn-lg wolfpackred btn-block smaller" alt="Continue to Next Page">Proceed</a>
 
 
             <?php

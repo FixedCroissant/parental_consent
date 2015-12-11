@@ -102,6 +102,15 @@ body {
   border-top-right-radius: 0;
 }
 
+#backButtonNotification{
+    text-align: center;
+    border:1px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom:25px;
+
+}
+
 .header{
     background-repeat: repeat-y;
     background-color: #CC0000;

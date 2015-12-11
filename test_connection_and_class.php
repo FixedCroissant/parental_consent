@@ -202,8 +202,8 @@ $myTerm=$_POST['term_of_housing_application'];
 //USED FOR GATHERING FIELDS TO PASS ACROSS THE APPLICATION.
 $connectionForParentalConsent->queryExecute($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
 
-//Get the first and last name of the query lookup.
-$student_FIRST_LAST_NAME = $connectionForParentalConsent->getStudentName($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
+//Get the first,last, and middle name of the query lookup. (Query #1)
+$student_FIRST_LAST_NAME = $connectionForParentalConsent->getStudentNameAndID($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
 
 echo $student_FIRST_LAST_NAME." ";
 

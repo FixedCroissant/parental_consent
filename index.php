@@ -197,6 +197,11 @@ include('db/log-on.php');
         });
     </script>
 
+    <!--Note to user not to use their back button-->
+    <div id="backButtonNotification">
+        <p>Please do <STRONG>NOT</STRONG> use your brower's back button during this process.</p>
+    </div>
+
     <!--If there are any errors, go ahead and put information here.-->
     <div id="errors">
         &nbsp;
@@ -272,7 +277,7 @@ include('db/log-on.php');
                         </div> <!--./Close input group-->
         </div>  <!--./close span9 columns-->
         </div> <!--./close the div class row-->
-        <button class="btn btn-lg wolfpackred btn-block spacing" name ="submit" type="submit"> Continue</button>
+        <button class="btn btn-lg wolfpackred btn-block spacing" name ="submit" type="submit"> Proceed</button>
     </form><!-- /form -->
 
 

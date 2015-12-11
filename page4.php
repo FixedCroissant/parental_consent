@@ -98,16 +98,7 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
         <!--Add NC State Header-->
         <img class="heading_wrap" src="images/logo.png" alt="NC State University Housing">
         <div class="container">
-
             <?php
-
-            /*
-            echo "Did the person agree to the housing agreement?" . $agreeToAllowStudent;
-            echo "<br/>";
-            echo "the name of the parent agreeing to the allow the student is".$nameOFParent_Page3;
-            echo "<br/>";
-            echo "<br/>";
-            */
 
             //NOTIFY THE END USER OF ANY BLANKS.
             //IF THE ERROR ARRAY IS NOT EMPTY ADD THE BODY OF THE UNORDERED LIST.
@@ -149,16 +140,7 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
             */
             if (empty($errors)){
 
-
-                echo $test;
-
-
-
-
-            echo "<br/>";
-
-                //COmmented out
-                //echo "All is well, you can pass through.";
+                echo "<br/>";
                 echo "<br/>";
                 echo "<br/>";
 
@@ -166,8 +148,11 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
             echo "Thank You for Your Submission.";
             echo "</div>";
 
-                echo "<br/>";
+            echo "<br/>";
 
+
+
+                /*Commented out
                 //Show values that were submitted on page 1
                 echo "These values came from page 1";
                 echo "<br/>";
@@ -186,6 +171,8 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
 
             echo "<br/>";
             echo "<br/>";
+            */
+
             }
 
             /*
@@ -202,7 +189,7 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
             <br/>
 
             <!--Close Window-->
-            <a class="btn btn-lg wolfpackred btn-block smaller" onclick="" alt="Close Windows -- Does not Work on Chrome">Close Window</a>
+            <a class="btn btn-lg wolfpackred btn-block smaller" onclick="window.open('', '_self', ''); window.close();" alt="Close Windows -- Does not Work on Chrome">Close Window</a>
 
 
 

@@ -49,6 +49,8 @@ function checkData() {
             .done(function( data ) {
 
 
+                alert(data);
+
                 //Breakup the data returned.
                 //First piece of text is firstName
                 //Second piece of text is lastName
@@ -63,11 +65,23 @@ function checkData() {
                 var studentFirstName = StudentInformation[0];
                 //Student Last Name
                 var studentLastName = StudentInformation[1];
-                //Matches
-                var matches = StudentInformation[2];
+                //Student Middle Name
+                var studentMiddleName  = StudentInformation [2];
+
+                //Student ID found
+                var studentID = StudentInformation[3];
+
+                //# of Matches
+                var matches = StudentInformation[4];
+
+                alert(studentID);
+                alert(matches);
+
 
                 //To Do
                 //Need to also pull student EMPLID and TERM.
+
+
                 //End To Do
 
 
@@ -137,7 +151,7 @@ function checkData() {
                     //Go to page2.php with my post parameters.
                     //example....
                     //$().redirect('demo.php', {'arg1': 'value1', 'arg2': 'value2'});
-                    $.redirect('page2.php', {'parental_email': 'email', 'student_date_of_birth': 'student_dob', 'date_of_housing_application': 'housing_application_process_date','retrieved_student_first_name': studentFirstName,'retrieved_student_last_name': studentLastName});
+                    $.redirect('page2.php', {'parental_email': 'email', 'student_date_of_birth': 'student_dob', 'date_of_housing_application': 'housing_application_process_date','retrieved_student_first_name': studentFirstName,'retrieved_student_last_name': studentLastName,'retrieved_student_middle_name':studentMiddleName, 'retrieved_student_emplid':studentID});
                     //END NEW
 
 

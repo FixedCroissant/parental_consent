@@ -18,6 +18,11 @@ class queryPull {
     var $CONN;      //Database Handler
     var $STID;      //Statement Handler.... used when parsing the query with the connection and when executing the actual query itself.
 
+    //Set Name Information for the Returned Student Data.
+    //Name Information ...
+
+    //End Name Information
+
     //End Variables
 
     //Create Constructor for new database lookups.
@@ -154,16 +159,24 @@ class queryPull {
     }
 
 
-    //Provide the student first name and last name of the first query lookup. (not the count of rows returned).
-    //
-    function getStudentName($STID){
+    //Provide the student first name,last name, studentID of the first query lookup. (not the count of rows returned).
+    function getStudentNameAndID($STID){
+        //By default, put nothing in here.
+        $first_name="No Match First Name";
+        $last_name="No Match Last Name ";
+        $middle_name="No Match Middle Name";
+        $student_ID = "No Match - Student ID";
 
-        while($row=oci_fetch_array($STID,OCI_ASSOC)){
-            $first_name = $row["FIRST_NAME"];
-            $last_name = $row["LAST_NAME"];
+     //As long as there is something in the search.
+         while($row=oci_fetch_array($STID,OCI_ASSOC)){
+           $first_name = $row["FIRST_NAME"];
+           $last_name = $row["LAST_NAME"];
+           $middle_name = $row["MIDDLE_NAME"];
+           $student_ID = $row["EMPLID"];
         }
-        return $first_name." ".$last_name;
 
+        //return $first_name." ".$last_name+ " " + $middle_name;
+        return $first_name." ".$last_name." ".$middle_name." ".$student_ID;
     }
 
 
