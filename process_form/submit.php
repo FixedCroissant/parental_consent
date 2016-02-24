@@ -18,14 +18,14 @@
 
 //Use the signin-information available online at
 //DEVELOPMENT access
-//housing.ncsu.edu/apps/mysql/psdb-DV1.php
+//XXRemovedXX/apps/mysql/psdb-DV1.php
 /***
  * EXAMPLE OF LOG-IN
  *  //ORACLE PEOPLE SOFT DEVELOPMENT SERVER
-    //$psusername='***REMOVED***';
-    //$pspassword='***REMOVED***';
+    //$psusername='XXRemovedXX';
+    //$pspassword='XXRemovedXX';
 
-//$psdb='(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=***REMOVED***)(PORT=15210))(CONNECT_DATA=(SID=CS900DV1)))';
+//$psdb='(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=XXRemovedXX)(PORT=15210))(CONNECT_DATA=(SID=XXRemovedXX)))';
 
 // CONNECT TO THE ORACLE PEOPLESOFT DB
 //$psconnect=oci_connect($psusername, $pspassword, $psdb);
@@ -35,13 +35,13 @@
 
 //PRODUCTION access
 //Location
-//housing.ncsu.edu/apps/mysql/psdb-PROD.php
+//XXRemovedXX/apps/mysql/psdb-XXRemovedXX
 //EXAMPLE OF PRODUCTION INFORMATION
 /*
  *
- *      //$psusername='***REMOVED***';
-        //$pspassword='***REMOVED***';
-        //$psdb='(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=***REMOVED***)(PORT=16210))(CONNECT_DATA=(SID=***REMOVED***)))';
+ *      //$psusername='XXRemovedXX';
+        //$pspassword='XXRemovedXX';
+        //$psdb='(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=XXRemovedXX)(PORT=16210))(CONNECT_DATA=(SID=XXRemovedXX)))';
         // CONNECT TO THE ORACLE PEOPLESOFT DB
         //$psconnect=oci_connect($psusername, $pspassword, $psdb);
  *
