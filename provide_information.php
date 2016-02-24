@@ -38,6 +38,7 @@ $connectionForParentalConsent = new queryPull($database_host,$username,$password
              *  QUERY FOR LOOKING UP DATA (DEVELOPMENT)
              */
             $query_FOR_PARENTAL_CONSENT =  "SELECT
+                                            LOCALHOST_PARENTAL_CONSENT.SS_STAT_INDICATOR,
                                             LOCALHOST_PARENTAL_CONSENT.EMPLID,
                                             LOCALHOST_PARENTAL_CONSENT.LAST_NAME,
                                             LOCALHOST_PARENTAL_CONSENT.MIDDLE_NAME,
@@ -202,10 +203,19 @@ $myTerm=$_POST['term_of_housing_application'];
 //USED FOR GATHERING FIELDS TO PASS ACROSS THE APPLICATION.
 $connectionForParentalConsent->queryExecute($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
 
-//Get the first,last, and middle name of the query lookup. (Query #1)
-$student_FIRST_LAST_NAME = $connectionForParentalConsent->getStudentNameAndID($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
+//Get student fields from the query lookup. (Query #1)
+//Field #1: Already completed application, housed in field SS_STAT_INDICATOR.
+//Field #2: Student First Name, housed in field FIRST_NAME.
+//Field #3: Student Last Name, housed in field LAST_NAME.
+//Field #4: Student Middle Name, housed in field MIDDLE_NAME.
+//Field #5: Student ID, housed in field EMPLID.
+//Field #6: Student DOB, housed in field BIRTHDATE.
+//Field #7: Parental e-mail, housed in field EMAIL_ADDR.
+//Field #8: Application Date, housed in field NC_PROCESS_DTTM
 
-echo $student_FIRST_LAST_NAME." ";
+$student_FIELDS = $connectionForParentalConsent->getStudentInformation($STID_PARENTAL_CONSENT_CONNECTION_FIELDS);
+
+echo $student_FIELDS." ";
 
 
 

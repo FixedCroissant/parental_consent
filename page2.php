@@ -15,8 +15,7 @@ session_start();
 $parental_email_address = $_POST["parental_email"];
 $student_date_of_birth = $_POST["student_date_of_birth"];
 $student_date_of_housing_application=$_POST["date_of_housing_application"];
-//TODO
-//ADD TERM HERE
+$student_term = $_POST['term_of_housing_application'];
 
 //ADD STUDENT FIRST NAME
 $student_first_name = $_POST['retrieved_student_first_name'];
@@ -26,23 +25,20 @@ $student_last_name = $_POST['retrieved_student_last_name'];
 $student_middle_name = $_POST['retrieved_student_middle_name'];
 //ADD STUDENT ID
 $student_emplid = $_POST['retrieved_student_emplid'];
+//RETRIEVED STUDENT DATE OF BIRTH
+$student_date_of_birth_retrieved = $_POST['student_date_of_birth_retrieved'];
 
 
-//Set as Session Values
-$_SESSION['parental_email_address']=$parental_email_address;
-$_SESSION['student_date_of_birth']=$student_date_of_birth;
+//SET AS SESSION VARIABLES.
+$_SESSION['RETRIEVED_PARENTAL_EMAIL_ADDRESS']=$parental_email_address;
+$_SESSION['student_date_of_birth']=$student_date_of_birth_retrieved;
 $_SESSION['student_date_of_housing_application']=$student_date_of_housing_application;
-
-//ADD TERM SESSION VARIABLE
-
 $_SESSION['RETRIEVED_STU_FIRST_NAME'] = $student_first_name;
-
 $_SESSION['RETRIEVED_STU_LAST_NAME'] = $student_last_name;
-
 $_SESSION['RETRIEVED_STU_MID_NAME'] = $student_middle_name;
-
 $_SESSION['RETRIEVED_STU_EMPLID'] = $student_emplid;
-
+$_SESSION['RETRIEVED_TERM'] = $student_term;
+//END SESSION VARIABLES.
 
 /**
  * CHECK FOR EMPTY VALUES AND NOT STRICTLY RELY ON JAVASCRIPT VALIDATION.
@@ -158,9 +154,6 @@ if (empty($student_date_of_housing_application))
 
                 //PROVIDE HTML MARK UP BELOW.
             ?>
-
-            <br/>
-            <br/>
                 <!--Message to the parent-->
              <p>
                  Hello Parent/Guardian of <STRONG><?php  echo $student_first_name . " ".$student_last_name; ?></STRONG><br/>
@@ -168,11 +161,11 @@ if (empty($student_date_of_housing_application))
                     Welcome to University Housing! We're glad your student has decided to live on campus with us at NC State University. Before we will assign your student to campus housing, we need you to confirm that your student has your permission to sign the housing agreement. You are receiving this notice because your student will not be 18 years of age at move in.
                 <br/>
                 <br/>
-                    If you intend for your student to live on campus, please click “proceed” to continue and accept the terms of the agreement by completing the parental waiver. Please know that your student will not receive an assignment if the waiver is not completed.
+                    If you intend for your student to live on campus, please click <STRONG>“proceed”</STRONG> to continue and accept the terms of the agreement by completing the parental waiver. Please know that your student will not receive an assignment if the waiver is not completed.
                 <br/><br/>
                     If you do not intend for your student to live on campus, please click <strong>“decline request”</strong> on the next page.
                 <br/><br/>
-                    To view a copy of the housing agreement, please click <a href="https://housing.ncsu.edu/agreements/" title = "NC State Housing Agreements" style="font-weight:bold;">here</a>.
+                    To view a copy of the housing agreement, please click <a href="https://housing.ncsu.edu/agreements/" target="_blank" title = "NC State Housing Agreements" style="font-weight:bold;">here</a>.
                 <br/><br/>
                 <span style="font-weight:bold; font-size:x-large;">Frequently asked questions:</span> <br/><br/>
                     <span style="font-weight:bold;">Is the agreement for a semester or for the academic year?</span>
@@ -185,7 +178,7 @@ if (empty($student_date_of_housing_application))
                     </ul>
                      <span style="font-weight:bold;">May my student decline the housing assignment?</span>
                     <ul>
-                        <li>Students completing a housing application are requesting on campus housing and will be assigned.  Students may choose to cancel their housing, but students may not decline the assignment. For additional information regarding cancellations, please refer to our <a href="https://housing.ncsu.edu/cancellations" style="font-weight:bold;">cancellation page.</a></li>
+                        <li>Students completing a housing application are requesting on campus housing and will be assigned.  Students may choose to cancel their housing, but students may not decline the assignment. For additional information regarding cancellations, please refer to our <a href="https://housing.ncsu.edu/cancellations" target="_blank" style="font-weight:bold;">cancellation page.</a></li>
                     </ul>
                     <span style="font-weight:bold;">Is there a guarantee that my student will receive their building preference or preferred roommate?</span>
                     <ul>
@@ -224,13 +217,6 @@ if (empty($student_date_of_housing_application))
               //Close the above IF statement.
             }
             ?>
-
-
-
-
-
-
-
 
         </div> <!-- /container -->
     </div>

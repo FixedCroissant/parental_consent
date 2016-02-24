@@ -11,6 +11,16 @@ session_start();
 
 //Variables are:
 //Get values from PAGE 2
+//Values that can be utilized from the 2nd page are:
+//Commented out as this is for documentation.
+//$_SESSION['parental_email_address']
+//$_SESSION['student_date_of_birth']
+//$_SESSION['student_date_of_housing_application']
+//$_SESSION['RETRIEVED_STU_FIRST_NAME']
+//$_SESSION['RETRIEVED_STU_LAST_NAME']
+//$_SESSION['RETRIEVED_STU_MID_NAME']
+//$_SESSION['RETRIEVED_STU_EMPLID']
+//$_SESSION['RETRIEVED_TERM']
 
 
 
@@ -25,9 +35,7 @@ session_start();
         <meta name="description" content="A form that allows parents to sign consent for their child.">
         <meta name="author" content="JWilliams">
         <link rel="icon" href="images/favicon.ico">
-
         <title>University Housing - Parental Consent</title>
-
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -54,11 +62,7 @@ session_start();
         <!--Uses jQuery UI-->
         <script src="scripts/confirmationOfDecline.js"></script>
     </head>
-
     <body>
-
-
-
     <div class="header">
         <!--Add NC State Header-->
         <img class="img-responsive" src="images/logo.png" alt="NC State University Housing">
@@ -74,7 +78,6 @@ session_start();
                         <div id="content">
                             The signature below certifies that I have read and fully understand the University Housing Agreement and agree to abide by the conditions and terms published separately and made part of the Agreement
                             by reference.
-
                             <br/>
                             <br/>
                             Furthermore, I understand my failure to provide complete, accurate, and truthful information on the Housing Application will be grounds to deny or withdraw the Housing Application, or cancel the assignment.
@@ -89,15 +92,20 @@ session_start();
                         <div id="student_information">
                             <span style="text-decoration:underline;">STUDENT INFORMATION</span>
                             <br/>
-                            Last Name: <span class="line" style="font-weight: bold;"><?php echo $_SESSION["RETRIEVED_STU_LAST_NAME"];                      ?></span><br/>
-                            First Name: <span class="line" style="font-weight: bold;"><?php echo $_SESSION["RETRIEVED_STU_FIRST_NAME"];                    ?></span><br/>
+                            Last Name: <span id="student-last-name" class="line" style="font-weight: bold;"><?php echo $_SESSION["RETRIEVED_STU_LAST_NAME"];                      ?></span><br/>
+                            First Name: <span id="student-first-name" class="line" style="font-weight: bold;"><?php echo $_SESSION["RETRIEVED_STU_FIRST_NAME"];                    ?></span><br/>
                             Middle Name: <span class="line" style="font-weight: bold;"><?php echo $_SESSION['RETRIEVED_STU_MID_NAME'];                     ?></span><br/>
-                            NC State ID Number: <span class="line" style="font-weight: bold;"><?php echo $_SESSION['RETRIEVED_STU_EMPLID'];                ?></span><br/>
+                            NC State ID Number: <span id="student-id-number" class="line" style="font-weight: bold;"><?php echo $_SESSION['RETRIEVED_STU_EMPLID'];                ?></span><br/>
                         </div>
+                        <input type="hidden" id="studentDOB" name="studentDOB" value="<?php echo $_SESSION['student_date_of_birth'];?>"/>
+                        <input type="hidden" id="student-application-term" name="student-application-term" value="<?php echo  $_SESSION['RETRIEVED_TERM'];   ?>"/>
+                        <input type="hidden" id="student-application-date-of-completion" name="student-application-date-of-completion" value="<?php echo  $_SESSION['student_date_of_housing_application'];   ?>"/>
+                        <input type="hidden" id="parental-email" name="parental-email" value="<?php echo  $_SESSION['RETRIEVED_PARENTAL_EMAIL_ADDRESS'];  ?>" />
+
                         <div id="housing_logo">
 
                         </div>
-                    </div><!--*.--end of container-->
+                    </div><!--end of container-->
                 </div><!--End housing agreement inner-->
             </div><!--End Housing Agreement portion of the page-->
 
@@ -108,7 +116,7 @@ session_start();
             </div>
             <div class="parent_name">
                     <label for ="parental_agreement_name_of_parent">Name of Parent:</label>
-                    <input type="text" class="form-control"  name="parent_authorization_to_allow_student_to_agree" size="50"  required required-message="hello"/>
+                    <input type="text" class="form-control"  name="parent_authorization_to_allow_student_to_agree" size="50"  required required-message=""/>
 
             </div>
 

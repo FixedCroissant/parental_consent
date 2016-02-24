@@ -72,7 +72,7 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
         <meta name="description" content="A form that allows parents to sign consent for their child.">
         <meta name="author" content="JWilliams">
         <link rel="icon" href="images/favicon.ico">
-        <title>University Housing - Parental Concent</title>
+        <title>University Housing - Parental Consent</title>
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -144,11 +144,37 @@ elseif(preg_match('#[^a-z]+$#i', $nameOFParent_Page3)){
                 echo "<br/>";
                 echo "<br/>";
 
-            echo "<div class='thank_you_header'>";
-            echo "Thank You for Your Submission.";
-            echo "</div>";
+            //INFORMATION WE MUST HAVE IN ORDER FOR THIS TO WORK ARE:
+            //EMPLID - STUDENT ID (9 DIGITS)
+            //TERM -   STUDENT TERM (4 DIGITS)
+            //BOTH OF THESE ARE IN SESSION VALUES.
+            //$_SESSION['RETRIEVED_STU_EMPLID']
+            //$_SESSION['RETRIEVED_TERM']
 
-            echo "<br/>";
+                //For debugging purposes only...
+                //Commented out on 12/16/2015 @ 2:22pm
+                /*
+                echo "THIS IS THE STUDENT ID:" . $_SESSION['RETRIEVED_STU_EMPLID'];
+                echo "<br/>";
+                echo "THIS IS THE TERM"    . $_SESSION['RETRIEVED_TERM'];*/
+                //For debuggin purposes only
+
+            //Run procedure by Wenyi.
+                include('db/procedure_UPDATE_DV1.php');
+            //End Run Procedure
+
+
+
+            //Comment out
+            //as this thank you should not show up unless the procedure called by Wenyi's function is successful.
+            /*
+            echo "<div class='thank_you_header'>";
+            echo " Thank you for your submission, for your security please close this page.";
+            echo "</div>";*/
+
+
+
+
 
 
 

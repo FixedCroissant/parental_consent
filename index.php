@@ -53,7 +53,8 @@
 
 <?php
 //Retrieve information to log-on to the Oracle/PeopleSoft Database.
-include('db/log-on.php');
+//DEVELOPMENT INSTANCE
+include('db/log-on_DV1.php');
 
 ?>
 <body>
@@ -64,124 +65,13 @@ include('db/log-on.php');
     <!--TO DO ADD FORM SUBMISSION TO CHECK DATA PROVIDED BY THE PARENT-->
 
     <?php
-    //Check whether or not the request matches the four parameters they are entering.
-    //By default, the MATCH is set to FALSE;
-    $match=FALSE;
+
 
 
    //ON SUBMISSION ONLY
     if(isset($_POST['submit'])){
             $submit_BUTTON_TO_NEXT_PAGE = $_POST['submit'];
-
-        //Check and see if there is a match....
-        //Check fields for proper values
-        //include('test_connection_and_class.php');
-        //End check and see if there is a match ...
-
-
-//Commented out on 412/8/2015 as it's necessary to move to AJAX to complete this.*/
-
-        //Only if there is a match, let the person proceed to the next page of the web-application.
-        //if($matchesPROVIDED==TRUE){
-                        //echo "<form class='form-signin' action='page2.php' method='POST'>";
-                        //Run this script
-                        //echo "<script src='scripts/changeFORM.js'>";
-
-        //}
-        //If there is no match, let the person know and let them re-submit the page.
-        /*else
-                        {
-                            echo "<div style='border: 1px solid black; text-align: center;'>";
-                            //Message to our End User that there was no matches using the four fields:
-                            // 01-Parental E-Mail Address.
-                            // 02-Student DOB
-                            // 03 - Date of Housing Application.
-                            // 04 - TERM
-                            $msgToEndUser="We do not find any resident with the information you have provided.";
-                            echo "<span style='color: red; font-weight: bold; text-align: center;'>";
-                            echo $msgToEndUser;
-                            echo "</span>";
-
-                            echo "<br/>";
-                            //Parental E-Mail
-                            if(isset($_POST['parental_email'])){
-                                $parental_EMAIL_ADDRESS = $_POST['parental_email'];
-
-                                //Provide a list of what the person provided in the textboxes.
-                                echo "You have provided:";
-                                echo "<br/>";
-
-                                //Unordered list
-                                echo "<ul style='text-align: left;'>";
-                                echo "<li>";
-                                echo "Parental E-Mail: " . $parental_EMAIL_ADDRESS;
-
-                                echo "</li>";
-                            }
-                            //End Parental E-Mail Address
-
-                            //Print out what they put for the student DOB.
-                            if(isset($_POST['student_date_of_birth'])){
-                                $student_DATEOFBIRTH = $_POST['student_date_of_birth'];
-
-                                echo "<li>";
-                                echo "Student DOB: " . $student_DATEOFBIRTH;
-                                echo "</li>";
-                            }
-                            //End Student DOB
-
-                            //Print out what they put for the student Housing Application
-                            if(isset($_POST['date_of_housing_application'])){
-                                $student_HOUSING_APPLICATION = $_POST['date_of_housing_application'];
-
-                                echo "<li>";
-                                echo "Student Housing Application: " . $student_HOUSING_APPLICATION;
-                                echo "</li>";
-                            }
-                            //End Date of Housing Application
-
-
-                            //Application Term
-                            //Print out what TERM that this request is for...
-                            if(isset($_POST['term_of_housing_application'])){
-                                $student_APPLICATION_TERM = $_POST['term_of_housing_application'];
-
-                                echo "<li>";
-
-                                    //Decode terms
-                                    $term = substr($student_APPLICATION_TERM,3,3);
-                                    //Decode the year.
-                                    $year = substr($student_APPLICATION_TERM,1,2);
-
-
-
-                                //Terms Spring, Summer and Fall
-                                if($term==8){
-                                    $student_APPLICATION_TERM="Fall "."20".$year;
-                                }
-                                elseif($term==5){
-                                    $student_APPLICATION_TERM="Summer "."20".$year;
-                                }
-                                elseif($term==1){
-                                    $student_APPLICATION_TERM="Spring "."20".$year;
-                                }
-
-                                echo "Application Term: " . $student_APPLICATION_TERM;
-                                echo "</li>";
-                            }
-                            //End Application Term
-
-
-
-                            //End unordered list
-                            echo "</ul>";
-
-                            //Close the error message div.
-                            echo "</div>";
-                        }*/
     } //end of $_POST submit.
-
-
     ?>
     <script>
         //When the document is ready ...
@@ -211,16 +101,16 @@ include('db/log-on.php');
        <h2 class="form-signin-heading">Please provide the following information:</h2>
         <ul>
             <li>
-                Parental E-Mail Address
+                Parental E-Mail Address<span class='required' style='color:red;'>Required</span>
             </li>
             <li>
-                Resident Date of Birth
+                Resident Date of Birth<span class ='required'  style='color:red;'>Required</span>
             </li>
             <li>
-                Date of Resident Housing Application
+                Date of Resident Housing Application<span class='required' style='color:red;'>Required</span>
             </li>
             <li>
-                Term of Resident Application
+                Term of Resident Application<span class='required' style='color:red;'>Required</span>
             </li>
         </ul>
         <div class="row">
@@ -257,21 +147,15 @@ include('db/log-on.php');
                     <div class="well-sm">
                         <label for="termOfHousingApplication_icon">Term of Housing Application</label>
                         <div class="input-append date" id="termOfHousingApplication_icon" required>
-
-
                             <!--Dropdown featuring terms-->
                                 <select id ="term_of_housing_application" name="term_of_housing_application">
-
                                     <script>
                                         //Dynamic dropdown based on current date.
                                         getValidTermsforDropDown(availableTerms);
                                     </script>
                                     <!--END TEMPORARY-->
-
                                 </select>
                                 <!--End Drop-down featuring terms...-->
-
-
                         </div>
                     </div>
                         </div> <!--./Close input group-->

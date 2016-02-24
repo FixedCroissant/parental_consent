@@ -160,24 +160,97 @@ class queryPull {
 
 
     //Provide the student first name,last name, studentID of the first query lookup. (not the count of rows returned).
-    function getStudentNameAndID($STID){
+    //Also see whether or not they have already completed this application.
+    function getStudentInformation($STID){
         //By default, put nothing in here.
-        $first_name="No Match First Name";
-        $last_name="No Match Last Name ";
-        $middle_name="No Match Middle Name";
-        $student_ID = "No Match - Student ID";
+		$already_completed_parental_application="";		
+        $housing_app_completed_in_system="";
+        $first_name="";
+        $last_name="";
+        $middle_name="";
+        $student_ID = "";
+        $student_DATE_OF_BIRTH = "";
+        $parental_email_address = "";
+        $student_app_date = "";
+
 
      //As long as there is something in the search.
          while($row=oci_fetch_array($STID,OCI_ASSOC)){
+		   //Check whether or not they have already completed the Parental Agreement and if they have,
+           //use this field to keep them from progressing forward within this application to move forward. (Onward to Page2.php)
+           $already_completed_parental_application=$row["NC_SH_PRNTL_APPRVL"];
+           //Check whether or not they have a completed housing application on file.
+           $housing_app_completed_in_system=$row["SS_STAT_INDICATOR"];
+           //Assign first name from the query lookup.
            $first_name = $row["FIRST_NAME"];
+           //Assign last name from the query lookup.
            $last_name = $row["LAST_NAME"];
+           //Assign middle name from the query lookup.
            $middle_name = $row["MIDDLE_NAME"];
+           //Assign the ID from the query lookup.
            $student_ID = $row["EMPLID"];
+           //Assign the student DOB to the query lookup.
+           $student_DATE_OF_BIRTH = $row["BIRTHDATE"];
+           //Assign the email
+           $parental_email_address = $row["EMAIL_ADDR"];
+           //Assign the application date
+           $student_app_date_temp = $row["NC_PROCESS_DTTM"];
+		   
+		   //For whatever reason, if there is a " " (BLANK) in the field, lets write blank, as it 
+		   //will trigger the condition if the end-user does not have any information within the "SS_STAT_INDICATOR" field.
+		    //Create a condition that writes the word "BLANK" if there is nothing in the field.
+			
+			//Fields this affects
+			//NC_SH_PRNTL_APPRVL (WHETHER THE END USER HAS ALREADY COMPLETED THIS WEB APPLICATION)
+			//SS_STAT_INDICATOR (WHETHER THE STUDENT HAS A COMPLETED HOUSING APPLICATION)
+			//MIDDLE_NAME       (FOR SOME WILD REASON THE QUERY DOES NOT PULL A MIDDLE NAME FOR THE STUDENT).			
+			
+			//Untouched below...
+			/*
+			if ($already_completed_parental_application==" "||$housing_app_completed_in_system==" "||$middle_name==" "){
+				 $already_completed_parental_application="BLANK"; //Assign the word, BLANK, to whether or not the end user has completed this web application. 
+                 $housing_app_completed_in_system="BLANK";	//Assign the word, BLANK, to the housing application status in MyPack Portal.
+				 $middle_name="BLANK"; //Assign the word, BLANK, to the middle name pulled (remember to remove this on page3.php when it is displayed back to the user.)
+		    }
+			*end untouched.
+			*/
+			//Changes added for the above wrong condition on 02/01/2016.
+			//If the field for NC_SH_PRNTL_APPRVL is blank, set the value that's sent back to PAGE1 to BLANK.
+			if ($already_completed_parental_application==" "){
+			$already_completed_parental_application="BLANK"; //Assign the word, BLANK, to whether or not the end user has completed this web application.
+			}
+			//If the SS_STAT_INDICATOR is blank, set the value that's sent back to PAGE1 to BLANK.
+			else if($housing_app_completed_in_system==" "){
+			$housing_app_completed_in_system="BLANK";	//Assign the word, BLANK, to the housing application status in MyPack Portal.
+			}
+			//If the Middle Name is blank, set the value back to Page1 to BLANK.
+			else if($middle_name==" "){
+				$middle_name="BLANK";
+			}
+			//End changes on 02/01/2016.		
+			
+			
+           //End creating a condition...
+		   
+		   
+		   
         }
-
-        //return $first_name." ".$last_name+ " " + $middle_name;
-        return $first_name." ".$last_name." ".$middle_name." ".$student_ID;
-    }
+		
+		 //FORMAT OF NC_PROCESS_DTTM IS DD-MM-YY H:i:s.00000000 AM
+		 //Only return a set amount of information.
+		 //SHOULD RETURN DD-MM-YY
+		   $date_of_application_formatted = substr($student_app_date_temp,0,9);
+		   $student_app_date = $date_of_application_formatted;
+		
+		
+        //Return information from the database lookup.
+        //return $already_completed_parental_application." ".$housing_app_completed_in_system." ".$first_name." ".$last_name." ".$middle_name." ".$student_ID." ".$student_DATE_OF_BIRTH." ".$parental_email_address." ".$student_app_date;
+		
+		//To prevent empty fields from breaking the communication between this file and the scripts/checkInformation.js that is 
+		//used within the /parental_consent/scripts/ let's make the field separator a "," (comma) vs an empty field.
+		return $already_completed_parental_application.",".$housing_app_completed_in_system.",".$first_name.",".$last_name.",".$middle_name.",".$student_ID.",".$student_DATE_OF_BIRTH.",".$parental_email_address.",".$student_app_date.",";
+		
+	}
 
 
     function retrieveCount($STID,$FIELDNAME){
@@ -198,9 +271,6 @@ class queryPull {
 
 
 
-
-
-
     //Used for reading the database table.
     //
     function createTableDisplay($STID){
@@ -218,25 +288,7 @@ class queryPull {
 
     }
 
-
     /**
      * END READ THE DATA FROM ORACLE
      */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

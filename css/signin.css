@@ -4,6 +4,11 @@ body {
   background-color: #eee;
 
 }
+.required{
+    float: right;
+    margin-right: 250px;
+    font-size: x-small;
+}
 .heading_wrap{
     max-width: 768px;
     height: auto;
@@ -145,7 +150,7 @@ body {
 }
 
 /*Page 2 Button*/
-#continue_page3Button{margin-top: 100px;}
+#continue_page3Button{margin-top: 100px; margin-bottom: 120px;}
 
 .spacing{
     margin-top: 25px;
@@ -169,9 +174,8 @@ width: 50%;
 
 /*Thank You Page styles*/
 .thank_you_header{
-    font-weight: bold;
     text-align:center;
-    font-size:x-large;
+    font-size:medium;
     font-color: #990000; /*Reynolds Red*/
 }
 

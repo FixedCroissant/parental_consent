@@ -6,11 +6,14 @@
  *
  */
 
+//ALL MONTHS NUMBERS START WITH ZERO, SO JUNE, THE 6TH MONTH WILL BE 5. 9 WILL BE OCTOBER (10TH MONTH), ETC.
 //Get Today's Date....
-//var todaysDate = new Date(2016,5,20);          /*October 15, 2015.*/
+//var todaysDate = new Date(2016,5,20);          /*June 20, 2016.*/
+var todaysDate = new Date(2016,9,01); /*FIRST DATE OF SPRING TERM, 10-01-2016*/
+
 
 //var todaysDate = new Date(2018,00,15);          /*January 02, 2017.*/
-var todaysDate = new Date();                      /*Current Date and Time*/
+//var todaysDate = new Date();                      /*Current Date and Time*/
 
 var month = todaysDate.getDate(); /*returns month*/
 var year = todaysDate.getFullYear(); /*Returns year*/
@@ -145,8 +148,10 @@ function checkValidOpenDatesSpring(){
     incrementDates(todaysDate);
 
 
+    //Note: On 10-01-2016 or subsequent dates (10-02, 10-03) the Spring 2016 drop down will automatically
+    //populate in this file.
 
-    if(todaysDate<openSpringDate){
+    if(todaysDate<=openSpringDate){
                 //Get against Spring 1 opening and closing dates.
                 //Remove the year by 1, so that it can be picked the year (during the fall term)
                 // before the actual Spring semester starts.
@@ -177,6 +182,7 @@ function getTermValue(){
 }
 
 function getValidTermsforDropDown(arrayName){
+
     for(i=0;i<arrayName.length;i++){
         //Term, Spring, Summer 1 or Summer 2, Fal.
         var Term = arrayName[i].toString().substr(3,4);
@@ -196,12 +202,9 @@ function getValidTermsforDropDown(arrayName){
         }
         //Two Year Digits
         var termTWOYEAR = arrayName[i].toString().substr(1,2);
-
-
-
         document.write("<option value="+arrayName[i]+">"+Term+" "+"20"+termTWOYEAR+"</option>");
-    }
-}
+    }//*.. close the for loop.
+}//close getValidTerms function
 
 function displayTermsAvailable(arrayName){
 
